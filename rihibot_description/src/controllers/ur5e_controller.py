@@ -2,6 +2,8 @@
 
 from turtle import position
 import rospy
+from sensor_msgs.msg import JointState
+from std_msgs.msg import Header
 from controller import Robot
 import math
 import random
@@ -33,16 +35,18 @@ for name in joint_names:
     motor.setVelocity(0.1)
     motors.append(motor)
 
-motor_position_sensors = []
-for name in joint_names:
-    sensor = robot.getDevice(name + "_sensor")
-    sensor.enable(timestep)
-    motor_position_sensors.append(sensor)
-
-
 position_sequence = [
     [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
 ]
+
+# Get motor position sensors
+sensors = []
+for joint in joint_names:
+    motor = robot.getDevice(joint)
+    sensor = motor.getPositionSensor()
+    sensor.enable(timestep)
+    sensors.append(sensor)
+
 
 random.seed(10)
 
@@ -57,8 +61,21 @@ is_moving = True
 
 moveToPosition(position_sequence[position_idx])
 
+rospy.init_node(name="data_handler", anonymous=True)
+joint_pub = rospy.Publisher("/joint_states", JointState, queue_size=10)
+
+rate = rospy.Rate(1000/timestep)
+
 while robot.step(timestep) != -1 and not rospy.is_shutdown():
 
+    # Publish joint states
+    joint_msg = JointState()
+    joint_msg.header = Header()
+    joint_msg.header.stamp = rospy.Time.now()
+    joint_msg.name = joint_names
+    joint_msg.position = [sensor.getValue() for sensor in sensors]
+
+    joint_pub.publish(joint_msg)
     if is_moving:
         wait_counter += 1
         if wait_counter >= wait_steps:
@@ -67,3 +84,5 @@ while robot.step(timestep) != -1 and not rospy.is_shutdown():
                 moveToPosition(position_sequence[position_idx])
                 wait_counter = 0
 
+
+    rate.sleep()

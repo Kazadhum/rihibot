@@ -9,7 +9,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation -0.21704396179822372 -0.11987043690219198 0.9687739658990681 4.124177016511829
-  position 2.036877971210386 2.180924167822016 1.1155449579185839
+  position 2.0070450226539287 2.133507406348619 1.0891166425970036
 }
 TexturedBackground {
 }
@@ -42,4 +42,8 @@ UR5e {
       }
     }
   ]
+}
+Robot {
+  name "joint_state_supervisor"
+  supervisor TRUE
 }
