@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+
+from turtle import position
+import rospy
+from controller import Robot
+import math
+import random
+
+def moveToPosition(position):
+    for i in range(len(motors)):
+        motors[i].setPosition(position[i])
+
+robot = Robot()
+
+timestep = 32
+wait_time = 8  # secs
+wait_steps = int((wait_time * 1000) / timestep)
+
+joint_names = [
+    "shoulder_pan_joint",
+    "shoulder_lift_joint",
+    "elbow_joint",
+    "wrist_1_joint",
+    "wrist_2_joint",
+    "wrist_3_joint",
+]
+
+motors = []
+
+for name in joint_names:
+    motor = robot.getDevice(name)
+    motor.setPosition(0.0)
+    motor.setVelocity(0.1)
+    motors.append(motor)
+
+motor_position_sensors = []
+for name in joint_names:
+    sensor = robot.getDevice(name + "_sensor")
+    sensor.enable(timestep)
+    motor_position_sensors.append(sensor)
+
+
+position_sequence = [
+    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+]
+
+random.seed(10)
+
+for i in range(10):
+    random_pos = [random.uniform(-2, 2) for k in range(len(motors))]
+    position_sequence.append(random_pos)
+
+
+position_idx = 0
+wait_counter = 0
+is_moving = True
+
+moveToPosition(position_sequence[position_idx])
+
+while robot.step(timestep) != -1 and not rospy.is_shutdown():
+
+    if is_moving:
+        wait_counter += 1
+        if wait_counter >= wait_steps:
+            position_idx += 1
+            if position_idx < len(position_sequence):
+                moveToPosition(position_sequence[position_idx])
+                wait_counter = 0
+

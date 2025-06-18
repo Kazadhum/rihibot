@@ -19,6 +19,7 @@ RectangleArena {
   floorSize 10 10
 }
 UR5e {
+  controller "<extern>"
   toolSlot [
     Gyro {
       physics Physics {
