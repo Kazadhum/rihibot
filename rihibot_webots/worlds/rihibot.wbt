@@ -8,8 +8,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.21704396179822372 -0.11987043690219198 0.9687739658990681 4.124177016511829
-  position 2.0070450226539287 2.133507406348619 1.0891166425970036
+  orientation -0.21715172765459598 -0.1157137553197119 0.969255102646581 4.095106519653855
+  position 2.0504395774698785 2.1029580355122777 1.0891166425970036
 }
 TexturedBackground {
 }
@@ -20,6 +20,7 @@ RectangleArena {
 }
 UR5e {
   controller "<extern>"
+  supervisor TRUE
   toolSlot [
     Gyro {
       physics Physics {
