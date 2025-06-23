@@ -6,10 +6,12 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/universal_robots/protos/UR5e.proto"
 
 WorldInfo {
+  basicTimeStep 4
+  FPS 24
 }
 Viewpoint {
-  orientation -0.22278072661272 -0.07995993619094191 0.9715838391277662 3.812670944753911
-  position 2.607393118003577 1.4810875021876884 1.2232587336597849
+  orientation -0.26782316743703743 -0.2518133910117098 0.9299789067990609 4.578568823533508
+  position 0.5981006987452563 2.692449557439044 1.4854616712142414
 }
 TexturedBackground {
 }
@@ -22,42 +24,60 @@ UR5e {
   controller "<extern>"
   supervisor TRUE
   toolSlot [
-    Gyro {
-      translation -0.0225 0 0
-      physics Physics {
-      }
-    }
-    Accelerometer {
-      translation -0.0225 0 0
+    Robot {
       children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.92549 0.501961 1
-            metalness 0
+        Gyro {
+          translation -0.0225 0 0
+          physics Physics {
           }
-          geometry DEF ACCEL_GEOM Box {
-            size 0.01 0.01 0.01
+        }
+        Accelerometer {
+          translation -0.0225 0 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.92549 0.501961 1
+                metalness 0
+              }
+              geometry DEF ACCEL_GEOM Box {
+                size 0.01 0.01 0.01
+              }
+            }
+          ]
+          boundingObject USE ACCEL_GEOM
+          physics Physics {
           }
         }
       ]
-      boundingObject USE ACCEL_GEOM
+      name "imu_dummy_robot"
       physics Physics {
       }
+      controller "imu"
+      synchronization FALSE
     }
-    Camera {
-      translation 0.0225 0 0
+    Robot {
       children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.333333 1 0
-            metalness 0
-          }
-          geometry USE ACCEL_GEOM
+        Camera {
+          translation 0.0225 0 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.333333 1 0
+                metalness 0
+              }
+              geometry DEF ACCEL_GEOM Box {
+                size 0.01 0.01 0.01
+              }
+            }
+          ]
+          name "hand_rgb"
+          width 1280
+          height 720
         }
       ]
-      name "hand_rgb"
-      width 1280
-      height 720
+      name "hand_rgb_dummy_robot"
+      controller "hand_rgb"
+      synchronization FALSE
     }
   ]
 }
