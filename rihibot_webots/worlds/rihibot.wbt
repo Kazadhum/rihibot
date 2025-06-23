@@ -8,8 +8,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.21715172765459598 -0.1157137553197119 0.969255102646581 4.095106519653855
-  position 2.0504395774698785 2.1029580355122777 1.0891166425970036
+  orientation -0.22278072661272 -0.07995993619094191 0.9715838391277662 3.812670944753911
+  position 2.607393118003577 1.4810875021876884 1.2232587336597849
 }
 TexturedBackground {
 }
@@ -23,10 +23,12 @@ UR5e {
   supervisor TRUE
   toolSlot [
     Gyro {
+      translation -0.0225 0 0
       physics Physics {
       }
     }
     Accelerometer {
+      translation -0.0225 0 0
       children [
         Shape {
           appearance PBRAppearance {
@@ -41,6 +43,21 @@ UR5e {
       boundingObject USE ACCEL_GEOM
       physics Physics {
       }
+    }
+    Camera {
+      translation 0.0225 0 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.333333 1 0
+            metalness 0
+          }
+          geometry USE ACCEL_GEOM
+        }
+      ]
+      name "hand_rgb"
+      width 1280
+      height 720
     }
   ]
 }
