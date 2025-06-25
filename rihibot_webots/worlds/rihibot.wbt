@@ -6,11 +6,11 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/universal_robots/protos/UR5e.proto"
 
 WorldInfo {
-  basicTimeStep 1
+  basicTimeStep 4
 }
 Viewpoint {
-  orientation -0.26799182525113346 -0.24945925072342073 0.9305645941185787 4.569266097493119
-  position -0.17850739107836466 2.682108403421003 1.5996118720339079
+  orientation -0.39456248086304757 -0.14833428504092946 0.9068171748354755 3.7987158821194984
+  position 1.5665675002715633 1.581652573219585 1.9690249596290614
 }
 TexturedBackground {
 }
