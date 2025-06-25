@@ -6,12 +6,11 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/universal_robots/protos/UR5e.proto"
 
 WorldInfo {
-  basicTimeStep 4
-  FPS 24
+  basicTimeStep 1
 }
 Viewpoint {
-  orientation -0.26782316743703743 -0.2518133910117098 0.9299789067990609 4.578568823533508
-  position 0.5981006987452563 2.692449557439044 1.4854616712142414
+  orientation -0.26799182525113346 -0.24945925072342073 0.9305645941185787 4.569266097493119
+  position -0.17850739107836466 2.682108403421003 1.5996118720339079
 }
 TexturedBackground {
 }
@@ -21,67 +20,48 @@ RectangleArena {
   floorSize 10 10
 }
 UR5e {
-  controller "<extern>"
+  controller "ros"
   supervisor TRUE
+  synchronization FALSE
   toolSlot [
-    Robot {
-      children [
-        Gyro {
-          translation -0.0225 0 0
-          physics Physics {
-          }
-        }
-        Accelerometer {
-          translation -0.0225 0 0
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 0.92549 0.501961 1
-                metalness 0
-              }
-              geometry DEF ACCEL_GEOM Box {
-                size 0.01 0.01 0.01
-              }
-            }
-          ]
-          boundingObject USE ACCEL_GEOM
-          physics Physics {
-          }
-        }
-      ]
-      name "imu_dummy_robot"
+    Gyro {
+      translation -0.0225 0 0
       physics Physics {
       }
-      controller "imu"
-      synchronization FALSE
     }
-    Robot {
+    Accelerometer {
+      translation -0.0225 0 0
       children [
-        Camera {
-          translation 0.0225 0 0
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 0.333333 1 0
-                metalness 0
-              }
-              geometry DEF ACCEL_GEOM Box {
-                size 0.01 0.01 0.01
-              }
-            }
-          ]
-          name "hand_rgb"
-          width 1280
-          height 720
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.92549 0.501961 1
+            metalness 0
+          }
+          geometry DEF ACCEL_GEOM Box {
+            size 0.01 0.01 0.01
+          }
         }
       ]
-      name "hand_rgb_dummy_robot"
-      controller "hand_rgb"
-      synchronization FALSE
+      boundingObject USE ACCEL_GEOM
+      physics Physics {
+      }
+    }
+    Camera {
+      translation 0.0225 0 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.333333 1 0
+            metalness 0
+          }
+          geometry DEF ACCEL_GEOM Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "hand_rgb"
+      width 1280
+      height 720
     }
   ]
-}
-Robot {
-  name "joint_state_supervisor"
-  supervisor TRUE
 }
