@@ -15,13 +15,13 @@ class CameraDataHandler:
         robot_get_basic_time_step_srv = rospy.ServiceProxy(
             name="/robot/get_basic_time_step", service_class=get_float
         )
-        rospy.wait_for_service(service="/hand_rgb/enable")
+        rospy.wait_for_service(service="/hand_rgb_optical_frame/enable")
         hand_rgb_enable_srv = rospy.ServiceProxy(
-            name="/hand_rgb/enable", service_class=set_int
+            name="/hand_rgb_optical_frame/enable", service_class=set_int
         )
-        rospy.wait_for_service(service="/hand_rgb/get_info")
+        rospy.wait_for_service(service="/hand_rgb_optical_frame/get_info")
         hand_rgb_get_info_srv = rospy.ServiceProxy(
-            name="/hand_rgb/get_info", service_class=camera_get_info
+            name="/hand_rgb_optical_frame/get_info", service_class=camera_get_info
         )
 
         timestep = int(robot_get_basic_time_step_srv().value)
@@ -41,7 +41,7 @@ class CameraDataHandler:
         rospy.init_node(name="hand_rgb_data_handler", anonymous=True)
 
         img_sub = rospy.Subscriber(
-            name="/hand_rgb/image", data_class=Image, callback=self.img_recv
+            name="/hand_rgb_optical_frame/image", data_class=Image, callback=self.img_recv
         )
         self.image_pub = rospy.Publisher(
             name="hand_rgb/image_raw", data_class=Image, queue_size=10
@@ -51,19 +51,20 @@ class CameraDataHandler:
         )
         self.bridge = CvBridge()
 
+        self.current_img_msg = None
+
         # Static CameraInfo message
-        cam_info_msg = CameraInfo()
-        cam_info_msg.header = Header()
-        cam_info_msg.header.stamp = rospy.Time.now()
-        cam_info_msg.header.frame_id = "hand_rgb_optical_frame"
-        cam_info_msg.width = cam_w
-        cam_info_msg.height = cam_h
-        cam_info_msg.distortion_model = "plumb_bob"
-        cam_info_msg.D = [0.0, 0.0, 0.0, 0.0, 0.0]
-        cam_info_msg.K = [fx, 0.0, cx, 0.0, fy, cy, 0.0, 0.0, 1.0]
-        cam_info_msg.R = [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
-        cam_info_msg.P = [fx, 0.0, cx, 0.0, 0.0, fy, cy, 0.0, 0.0, 0.0, 1.0, 0.0]
-        self.cam_info_pub.publish(cam_info_msg)
+        self.cam_info_msg = CameraInfo()
+        self.cam_info_msg.header = Header()
+        self.cam_info_msg.header.stamp = rospy.Time.now()
+        self.cam_info_msg.header.frame_id = "hand_rgb_optical_frame"
+        self.cam_info_msg.width = cam_w
+        self.cam_info_msg.height = cam_h
+        self.cam_info_msg.distortion_model = "plumb_bob"
+        self.cam_info_msg.D = [0.0, 0.0, 0.0, 0.0, 0.0]
+        self.cam_info_msg.K = [fx, 0.0, cx, 0.0, fy, cy, 0.0, 0.0, 1.0]
+        self.cam_info_msg.R = [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+        self.cam_info_msg.P = [fx, 0.0, cx, 0.0, 0.0, fy, cy, 0.0, 0.0, 0.0, 1.0, 0.0]
 
     def img_recv(self, msg):
 
@@ -71,13 +72,21 @@ class CameraDataHandler:
         header = Header()
         header.stamp = msg.header.stamp
         header.frame_id = "hand_rgb_optical_frame"
-
         new_msg.header = header
 
-        self.image_pub.publish(new_msg)
+        self.current_img_msg = new_msg
 
 
 
 if __name__ == "__main__":
     image_handler = CameraDataHandler()
-    rospy.spin()
+
+    rate = rospy.Rate(hz=10)
+
+    while not rospy.is_shutdown():
+
+        if image_handler.current_img_msg is not None:
+            image_handler.image_pub.publish(image_handler.current_img_msg)
+            image_handler.cam_info_pub.publish(image_handler.cam_info_msg)
+        
+        rospy.Rate.sleep(rate)

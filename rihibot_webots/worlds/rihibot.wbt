@@ -6,11 +6,11 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/universal_robots/protos/UR5e.proto"
 
 WorldInfo {
-  basicTimeStep 4
+  basicTimeStep 16
 }
 Viewpoint {
-  orientation -0.39456248086304757 -0.14833428504092946 0.9068171748354755 3.7987158821194984
-  position 1.5665675002715633 1.581652573219585 1.9690249596290614
+  orientation 0.0030627980699168777 -0.005237495034009782 0.9999815937874815 4.362082181110461
+  position 0.8377617801848538 1.6223231977848847 0.16905235422090442
 }
 TexturedBackground {
 }
@@ -26,11 +26,13 @@ UR5e {
   toolSlot [
     Gyro {
       translation -0.0225 0 0
+      rotation 0.7071037811809998 0.7071097811791431 0 3.14159
       physics Physics {
       }
     }
     Accelerometer {
       translation -0.0225 0 0
+      rotation 0.7071037811809998 0.7071097811791431 0 3.14159
       children [
         Shape {
           appearance PBRAppearance {
@@ -46,22 +48,26 @@ UR5e {
       physics Physics {
       }
     }
-    Camera {
+    Solid {
       translation 0.0225 0 0
+      rotation 0.7071072811855894 0.7071062811851917 0 -3.1415853071795863
       children [
         Shape {
           appearance PBRAppearance {
-            baseColor 0.333333 1 0
+            baseColor 0 1 0
             metalness 0
           }
-          geometry DEF ACCEL_GEOM Box {
-            size 0.01 0.01 0.01
-          }
+          geometry USE ACCEL_GEOM
+        }
+        Camera {
+          rotation 0.5773509358554485 -0.5773509358554485 0.5773489358556708 -2.094395307179586
+          name "hand_rgb_optical_frame"
+          width 1280
+          height 720
         }
       ]
-      name "hand_rgb"
-      width 1280
-      height 720
+      name "hand_rgb_link"
+      boundingObject USE ACCEL_GEOM
     }
   ]
 }

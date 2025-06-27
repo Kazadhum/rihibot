@@ -49,6 +49,9 @@ def main():
                 print("Target reached!")
                 on_target = True
 
+            if pos_arr == position_sequence[-1] and on_target:
+                break
+            
         time.sleep(3)
 
     rospy.spin()
