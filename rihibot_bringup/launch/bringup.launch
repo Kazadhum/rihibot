@@ -13,9 +13,11 @@
   <env name="LD_LIBRARY_PATH" value="$(env LD_LIBRARY_PATH):$(env WEBOTS_HOME)/lib/controller"/>
   <env name="PYTHONPATH" value="$(env PYTHONPATH):$(env WEBOTS_HOME)/lib/controller/python"/>
 
-  <!-- <node name="webots_ros_python" pkg="rihibot_description" type="ur5e_controller.py" required="$(arg auto_close)"/> -->
   <node name="imu_data_handler" pkg="rihibot_bringup" type="imu_data_handler.py" required="$(arg auto_close)"/>
-  <!-- <node name="hand_rgb_data_handler" pkg="rihibot_bringup" type="hand_rgb_data_handler.py" required="$(arg auto_close)"/> -->
+  <node name="hand_rgb_data_handler" pkg="rihibot_bringup" type="hand_rgb_data_handler.py" required="$(arg auto_close)"/>
+  <node name="ur5e_controller" pkg="rihibot_bringup" type="ur5e_control.py" required="$(arg auto_close)"/>
+  <node name="clock_and_joints_publisher" pkg="rihibot_bringup" type="clock_and_joints_publisher.py" required="$(arg auto_close)"/>
+
 
   <!-- Publish robot_state from URDF -->
   <param name="robot_description" command="$(find xacro)/xacro '$(find rihibot_description)/urdf/ur5e.urdf'" />
