@@ -25,35 +25,26 @@ def main():
         rospy.wait_for_message(topic=f"/{joint}_sensor/value", topic_type=Float64Stamped)
         print("got message!")
 
-    print("hi")
-
     joint_pub = rospy.Publisher("/joint_states", JointState, queue_size=10)
-    clock_pub = rospy.Publisher(name="clock", data_class=Clock, queue_size=1)
+    # clock_pub = rospy.Publisher(name="clock", data_class=Clock, queue_size=1)
 
     while not rospy.is_shutdown():
 
         # Publish joint states
         joint_msg = JointState()
         joint_msg.header = Header()
-        joint_msg.header.stamp = rospy.Time.now()
+        
+        sim_time = controller.robot_get_time()
+        secs = int(sim_time)
+        nsecs = int((sim_time - secs) * 1e9)
+        
+        joint_msg.header.stamp.secs = secs
+        joint_msg.header.stamp.nsecs = nsecs
         joint_msg.name = controller.joint_names
         joint_msg.position = [controller.joint_position_dict[joint] for joint in controller.joint_names]
         
         joint_pub.publish(joint_msg)
         
-        # Publish /clock
-        sim_time = controller.robot_get_time()
-        secs = int(sim_time)
-        nsecs = int((sim_time - secs) * 1e9)
-
-        clock_msg = Clock()
-        clock_msg.clock.secs = secs
-        clock_msg.clock.nsecs = nsecs
-        clock_pub.publish(clock_msg)
-
-    
-
-
 
 if __name__ == "__main__":
     main()

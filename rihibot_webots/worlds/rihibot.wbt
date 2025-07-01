@@ -9,8 +9,8 @@ WorldInfo {
   basicTimeStep 16
 }
 Viewpoint {
-  orientation 0.0030627980699168777 -0.005237495034009782 0.9999815937874815 4.362082181110461
-  position 0.8377617801848538 1.6223231977848847 0.16905235422090442
+  orientation -0.1113924185225336 0.1192794050616923 0.9865921916495334 1.4242862873199702
+  position 0.1706147228801056 -3.4967050151249253 1.336171381578248
 }
 TexturedBackground {
 }
@@ -21,6 +21,10 @@ RectangleArena {
 }
 UR5e {
   controller "ros"
+  controllerArgs [
+    "--use-sim-time"
+    "--clock"
+  ]
   supervisor TRUE
   synchronization FALSE
   toolSlot [
@@ -48,9 +52,9 @@ UR5e {
       physics Physics {
       }
     }
-    Solid {
+    Camera {
       translation 0.0225 0 0
-      rotation 0.7071072811855894 0.7071062811851917 0 -3.1415853071795863
+      rotation 0.7071067811862364 0.7071067811862364 9.381857096790023e-07 3.14159
       children [
         Shape {
           appearance PBRAppearance {
@@ -59,15 +63,35 @@ UR5e {
           }
           geometry USE ACCEL_GEOM
         }
-        Camera {
-          rotation 0.5773509358554485 -0.5773509358554485 0.5773489358556708 -2.094395307179586
+        Solid {
+          rotation 0.5773496025180295 -0.5773536025152757 0.5773476025194064 -2.094395307179586
           name "hand_rgb_optical_frame"
-          width 1280
-          height 720
+          boundingObject USE ACCEL_GEOM
         }
       ]
       name "hand_rgb_link"
-      boundingObject USE ACCEL_GEOM
+      width 1280
+      height 720
+    }
+  ]
+}
+Solid {
+  translation 0.92944 3 0.240236
+  rotation -0.13052598533533916 1.7318098054302875e-07 0.9914448886106625 3.14159
+  children [
+    Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "../libraries/charuco_800x600_5x5_100/texture.png"
+          ]
+        }
+      }
+      geometry Mesh {
+        url [
+          "../libraries/charuco_800x600_5x5_100/charuco_800x600_5x5_100.dae"
+        ]
+      }
     }
   ]
 }

@@ -8,7 +8,8 @@
     <arg name="no_gui" value="$(arg no_gui)"/>
     <arg name="world" value="$(find rihibot_webots)/worlds/rihibot.wbt"/>
   </include>
-
+  
+  <param name="/use_sim_time" value="true"/>
   <arg name="auto_close" default="false" doc="Startup mode"/>
   <env name="LD_LIBRARY_PATH" value="$(env LD_LIBRARY_PATH):$(env WEBOTS_HOME)/lib/controller"/>
   <env name="PYTHONPATH" value="$(env PYTHONPATH):$(env WEBOTS_HOME)/lib/controller/python"/>
@@ -22,6 +23,6 @@
   <!-- Publish robot_state from URDF -->
   <param name="robot_description" command="$(find xacro)/xacro '$(find rihibot_description)/urdf/ur5e.urdf'" />
 
-  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
 
  </launch>

@@ -58,7 +58,7 @@ class ImuDataMerger:
             imu_msg = Imu()
             if self.gyro_msg and self.accel_msg:
                 # Header
-                imu_msg.header.stamp = rospy.Time.now()
+                imu_msg.header.stamp = self.accel_msg.header.stamp
                 imu_msg.header.frame_id = "accelerometer"
                 # Orientation (ignore)
                 imu_msg.orientation = Quaternion(0, 0, 0, 1)

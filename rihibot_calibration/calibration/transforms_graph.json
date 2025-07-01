@@ -1,0 +1,224 @@
+{
+  "directed": true,
+  "graph": {},
+  "links": [
+    {
+      "child": "shoulder_link",
+      "from_bag": false,
+      "is_transformation_calibrated": false,
+      "joint_name": "shoulder_pan_joint",
+      "joint_params_calibrated": null,
+      "parent": "base_link",
+      "source": "base_link",
+      "target": "shoulder_link",
+      "type": "revolute",
+      "weight": 1
+    },
+    {
+      "child": "pattern_link",
+      "from_bag": false,
+      "is_transformation_calibrated": true,
+      "joint_name": null,
+      "joint_params_calibrated": null,
+      "parent": "base_link",
+      "source": "base_link",
+      "target": "pattern_link",
+      "type": "fixed",
+      "weight": 1
+    },
+    {
+      "child": "upper_arm_link",
+      "from_bag": false,
+      "is_transformation_calibrated": false,
+      "joint_name": "shoulder_lift_joint",
+      "joint_params_calibrated": null,
+      "parent": "shoulder_link",
+      "source": "shoulder_link",
+      "target": "upper_arm_link",
+      "type": "revolute",
+      "weight": 1
+    },
+    {
+      "child": "forearm_link",
+      "from_bag": false,
+      "is_transformation_calibrated": false,
+      "joint_name": "elbow_joint",
+      "joint_params_calibrated": null,
+      "parent": "upper_arm_link",
+      "source": "upper_arm_link",
+      "target": "forearm_link",
+      "type": "revolute",
+      "weight": 1
+    },
+    {
+      "child": "wrist_1_link",
+      "from_bag": false,
+      "is_transformation_calibrated": false,
+      "joint_name": "wrist_1_joint",
+      "joint_params_calibrated": null,
+      "parent": "forearm_link",
+      "source": "forearm_link",
+      "target": "wrist_1_link",
+      "type": "revolute",
+      "weight": 1
+    },
+    {
+      "child": "wrist_2_link",
+      "from_bag": false,
+      "is_transformation_calibrated": false,
+      "joint_name": "wrist_2_joint",
+      "joint_params_calibrated": null,
+      "parent": "wrist_1_link",
+      "source": "wrist_1_link",
+      "target": "wrist_2_link",
+      "type": "revolute",
+      "weight": 1
+    },
+    {
+      "child": "wrist_3_link",
+      "from_bag": false,
+      "is_transformation_calibrated": false,
+      "joint_name": "wrist_3_joint",
+      "joint_params_calibrated": null,
+      "parent": "wrist_2_link",
+      "source": "wrist_2_link",
+      "target": "wrist_3_link",
+      "type": "revolute",
+      "weight": 1
+    },
+    {
+      "child": "hand_rgb_link",
+      "from_bag": false,
+      "is_transformation_calibrated": true,
+      "joint_name": "wrist_3_link_hand_rgb_link_joint",
+      "joint_params_calibrated": null,
+      "parent": "wrist_3_link",
+      "source": "wrist_3_link",
+      "target": "hand_rgb_link",
+      "type": "fixed",
+      "weight": 1
+    },
+    {
+      "child": "accelerometer",
+      "from_bag": false,
+      "is_transformation_calibrated": true,
+      "joint_name": "wrist_3_link_accelerometer_joint",
+      "joint_params_calibrated": null,
+      "parent": "wrist_3_link",
+      "source": "wrist_3_link",
+      "target": "accelerometer",
+      "type": "fixed",
+      "weight": 1
+    },
+    {
+      "child": "gyro",
+      "from_bag": false,
+      "is_transformation_calibrated": false,
+      "joint_name": "wrist_3_link_gyro_joint",
+      "joint_params_calibrated": null,
+      "parent": "wrist_3_link",
+      "source": "wrist_3_link",
+      "target": "gyro",
+      "type": "fixed",
+      "weight": 1
+    },
+    {
+      "child": "hand_rgb_optical_frame",
+      "from_bag": false,
+      "is_transformation_calibrated": false,
+      "joint_name": "hand_rgb_link_hand_rgb_optical_frame_joint",
+      "joint_params_calibrated": null,
+      "parent": "hand_rgb_link",
+      "source": "hand_rgb_link",
+      "target": "hand_rgb_optical_frame",
+      "type": "fixed",
+      "weight": 1
+    }
+  ],
+  "multigraph": false,
+  "nodes": [
+    {
+      "from_bag": false,
+      "id": "base_link",
+      "is_world": true,
+      "pattern": null,
+      "sensor_data": null
+    },
+    {
+      "from_bag": false,
+      "id": "shoulder_link",
+      "is_world": false,
+      "pattern": null,
+      "sensor_data": null
+    },
+    {
+      "from_bag": false,
+      "id": "upper_arm_link",
+      "is_world": false,
+      "pattern": null,
+      "sensor_data": null
+    },
+    {
+      "from_bag": false,
+      "id": "forearm_link",
+      "is_world": false,
+      "pattern": null,
+      "sensor_data": null
+    },
+    {
+      "from_bag": false,
+      "id": "wrist_1_link",
+      "is_world": false,
+      "pattern": null,
+      "sensor_data": null
+    },
+    {
+      "from_bag": false,
+      "id": "wrist_2_link",
+      "is_world": false,
+      "pattern": null,
+      "sensor_data": null
+    },
+    {
+      "from_bag": false,
+      "id": "wrist_3_link",
+      "is_world": false,
+      "pattern": null,
+      "sensor_data": null
+    },
+    {
+      "from_bag": false,
+      "id": "hand_rgb_link",
+      "is_world": false,
+      "pattern": null,
+      "sensor_data": null
+    },
+    {
+      "from_bag": false,
+      "id": "hand_rgb_optical_frame",
+      "is_world": false,
+      "pattern": null,
+      "sensor_data": "hand_rgb"
+    },
+    {
+      "from_bag": false,
+      "id": "accelerometer",
+      "is_world": false,
+      "pattern": null,
+      "sensor_data": "hand_imu"
+    },
+    {
+      "from_bag": false,
+      "id": "gyro",
+      "is_world": false,
+      "pattern": null,
+      "sensor_data": null
+    },
+    {
+      "id": "pattern_link",
+      "is_world": false,
+      "pattern": "pattern_1",
+      "sensor_data": null
+    }
+  ]
+}

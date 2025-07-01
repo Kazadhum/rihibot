@@ -301,14 +301,14 @@
   <joint name="wrist_3_link_hand_rgb_link_joint" type="fixed">
     <parent link="wrist_3_link"/>
     <child link="hand_rgb_link"/>
-    <origin xyz="0.0225 0.1 0" rpy="-3.141587 -0.000005 1.570795"/>
+    <origin xyz="0.0225 0.1 0" rpy="1.570793 0.000001 0"/>
   </joint>
   <link name="hand_rgb_optical_frame">
   </link>
   <joint name="hand_rgb_link_hand_rgb_optical_frame_joint" type="fixed">
     <parent link="hand_rgb_link"/>
     <child link="hand_rgb_optical_frame"/>
-    <origin xyz="0 0 0" rpy="-3.141595 0.000001 -3.141592"/>
+    <origin xyz="0 0 0" rpy="-1.570801 0.000006 -1.570798"/>
   </joint>
   <link name="accelerometer">
   </link>

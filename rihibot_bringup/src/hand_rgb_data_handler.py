@@ -15,13 +15,13 @@ class CameraDataHandler:
         robot_get_basic_time_step_srv = rospy.ServiceProxy(
             name="/robot/get_basic_time_step", service_class=get_float
         )
-        rospy.wait_for_service(service="/hand_rgb_optical_frame/enable")
+        rospy.wait_for_service(service="/hand_rgb_link/enable")
         hand_rgb_enable_srv = rospy.ServiceProxy(
-            name="/hand_rgb_optical_frame/enable", service_class=set_int
+            name="/hand_rgb_link/enable", service_class=set_int
         )
-        rospy.wait_for_service(service="/hand_rgb_optical_frame/get_info")
+        rospy.wait_for_service(service="/hand_rgb_link/get_info")
         hand_rgb_get_info_srv = rospy.ServiceProxy(
-            name="/hand_rgb_optical_frame/get_info", service_class=camera_get_info
+            name="/hand_rgb_link/get_info", service_class=camera_get_info
         )
 
         timestep = int(robot_get_basic_time_step_srv().value)
@@ -41,7 +41,7 @@ class CameraDataHandler:
         rospy.init_node(name="hand_rgb_data_handler", anonymous=True)
 
         img_sub = rospy.Subscriber(
-            name="/hand_rgb_optical_frame/image", data_class=Image, callback=self.img_recv
+            name="/hand_rgb_link/image", data_class=Image, callback=self.img_recv
         )
         self.image_pub = rospy.Publisher(
             name="hand_rgb/image_raw", data_class=Image, queue_size=10

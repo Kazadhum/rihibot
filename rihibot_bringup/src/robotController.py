@@ -58,7 +58,7 @@ class RobotController:
             self.srv_proxy_dict[f"{joint}_sensor_enable"] = rospy.ServiceProxy(
                 name=f"/{joint}_sensor/enable", service_class=set_int
             )
-        
+
         self.srv_proxy_dict["robot_get_time"] = robot_get_time_srv
 
         # Configure subscribers to the joint position sensors

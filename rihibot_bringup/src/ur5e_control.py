@@ -25,7 +25,8 @@ def main():
     position_sequence = []
     # Initial position
     position_sequence.append([0.0] * len(controller.joint_names))
-
+    
+    random.seed(a=11)
     for i in range(10):
         random_pos = [random.uniform(-2, 2) for k in range(len(controller.joint_names))]
         position_sequence.append(random_pos)

@@ -73,7 +73,7 @@ sensors:
   hand_rgb:
     link: "hand_rgb_optical_frame"
     parent_link: "wrist_3_link"
-    child_link: "hand_rgb"
+    child_link: "hand_rgb_link"
     topic_name: "/hand_rgb/image_raw"
     modality: "rgb"
     throttle: 10
@@ -81,9 +81,9 @@ sensors:
 
   # You can have more than one sensor:
   hand_imu:
-    link: "acceleremoter"
+    link: "accelerometer"
     parent_link: "wrist_3_link"
-    child_link: "acceleremoter"
+    child_link: "accelerometer"
     topic_name: "/imu"
     modality: "imu"
     throttle:
@@ -137,7 +137,7 @@ calibration_patterns:
     # The parent frame id (or link) of the pattern.
     # For example, in hand-eye calibration the parent link
     # of the pattern can be the end-effector or the base of the arm
-    parent_link: "world"
+    parent_link: "base_link"
 
     # Defines if the pattern link is the same in all collections (i.e. fixed=true),
     # or each collection will have its own estimate of the link transformation.
@@ -149,7 +149,7 @@ calibration_patterns:
     # Supported pattern are:
     # - chessboard
     # - charuco
-    pattern_type: "chessboard"
+    pattern_type: "charuco"
 
     # If the pattern type is "charuco" you need to define
     # the aruco dictionary used by the pattern.
@@ -158,24 +158,24 @@ calibration_patterns:
 
     # Mesh file (collada.dae or stl) for showing pattern on rviz. URI or regular path.
     # See: atom_worlds/patterns/models for options.
-    mesh_file: "package://atom_worlds/pattern/models/charuco_800x600_5x5_100/charuco_800x600_5x5_100.dae"
+    mesh_file: "package://rihibot_webots/libraries/charuco_800x600_5x5_100/charuco_800x600_5x5_100.dae"
 
     # The border width from the edge corner to the pattern physical edge.
     # Used for 3D sensors and lidars.
     # It can be a scalar (same border in x and y directions), or it can be {'x': ..., 'y': ,,,}
-    border_size: { 'x': 0.05, 'y': 0.05 }
+    border_size: { 'x': 0.04, 'y': 0.03 }
 
     # The number of corners the pattern has in the X and Y dimensions.
     # Note: The charuco detector uses the number of squares per dimension in its detector.
     # Internally we add a +1 to Y and X dimensions to account for that.
     # Therefore, the number of corners should be used even for the charuco pattern.
-    dimension: { "x": 9, "y": 6 }
+    dimension: { "x": 11, "y": 8 }
 
     # The length of the square edge.
-    size: 0.02
+    size: 0.06
 
     # The length of the charuco inner marker.
-    inner_size: 0.015
+    inner_size: 0.045
 
 
 # Miscellaneous configuration
