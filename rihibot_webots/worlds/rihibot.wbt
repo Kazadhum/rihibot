@@ -9,8 +9,8 @@ WorldInfo {
   basicTimeStep 16
 }
 Viewpoint {
-  orientation -0.1113924185225336 0.1192794050616923 0.9865921916495334 1.4242862873199702
-  position 0.1706147228801056 -3.4967050151249253 1.336171381578248
+  orientation -0.07591448225148605 0.05982627687003509 0.9953179431620625 1.6759564145322732
+  position 1.0246753399742203 -4.004670465850606 1.1579056280351403
 }
 TexturedBackground {
 }
@@ -94,4 +94,9 @@ Solid {
       }
     }
   ]
+}
+Robot {
+  name "supervisor_joints_pub"
+  controller "supervisor_joints_pub"
+  supervisor TRUE
 }

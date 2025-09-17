@@ -26,7 +26,6 @@ def main():
         print("got message!")
 
     joint_pub = rospy.Publisher("/joint_states", JointState, queue_size=10)
-    # clock_pub = rospy.Publisher(name="clock", data_class=Clock, queue_size=1)
 
     while not rospy.is_shutdown():
 
