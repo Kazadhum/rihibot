@@ -6,11 +6,11 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/universal_robots/protos/UR5e.proto"
 
 WorldInfo {
-  basicTimeStep 16
+  basicTimeStep 4
 }
 Viewpoint {
-  orientation -0.07591448225148605 0.05982627687003509 0.9953179431620625 1.6759564145322732
-  position 1.0246753399742203 -4.004670465850606 1.1579056280351403
+  orientation -0.14300094998413684 -0.08618017540063548 0.985963338908476 4.147317965064169
+  position 1.7929896057359687 3.791961595280269 1.279419816199584
 }
 TexturedBackground {
 }
@@ -20,20 +20,15 @@ RectangleArena {
   floorSize 10 10
 }
 UR5e {
+  translation 0.1 0 0
   controller "ros"
   controllerArgs [
-    "--use-sim-time"
     "--clock"
+    "--use-sim-time"
   ]
   supervisor TRUE
   synchronization FALSE
   toolSlot [
-    Gyro {
-      translation -0.0225 0 0
-      rotation 0.7071037811809998 0.7071097811791431 0 3.14159
-      physics Physics {
-      }
-    }
     Accelerometer {
       translation -0.0225 0 0
       rotation 0.7071037811809998 0.7071097811791431 0 3.14159
@@ -52,6 +47,13 @@ UR5e {
       physics Physics {
       }
     }
+    Gyro {
+      translation -0.0225 0 0
+      rotation 0.7071037811809998 0.7071097811791431 0 3.14159
+      boundingObject USE ACCEL_GEOM
+      physics Physics {
+      }
+    }
     Camera {
       translation 0.0225 0 0
       rotation 0.7071067811862364 0.7071067811862364 9.381857096790023e-07 3.14159
@@ -61,12 +63,16 @@ UR5e {
             baseColor 0 1 0
             metalness 0
           }
-          geometry USE ACCEL_GEOM
+          geometry DEF ACCEL_GEOM Box {
+            size 0.01 0.01 0.01
+          }
         }
         Solid {
           rotation 0.5773496025180295 -0.5773536025152757 0.5773476025194064 -2.094395307179586
           name "hand_rgb_optical_frame"
-          boundingObject USE ACCEL_GEOM
+          boundingObject DEF ACCEL_GEOM Box {
+            size 0.01 0.01 0.01
+          }
         }
       ]
       name "hand_rgb_link"
@@ -99,4 +105,5 @@ Robot {
   name "supervisor_joints_pub"
   controller "supervisor_joints_pub"
   supervisor TRUE
+  synchronization FALSE
 }
