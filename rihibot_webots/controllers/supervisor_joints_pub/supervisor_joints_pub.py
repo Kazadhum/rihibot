@@ -39,10 +39,12 @@ print("Waiting....")
 for joint in joint_names:
     rospy.wait_for_message(topic=f"/{joint}_sensor/value", topic_type=Float64Stamped)
 
+print("Yay!")
+
 joint_pub = rospy.Publisher("/joint_states", JointState, queue_size=1)
 
 # Set low velocities for joints
-vel_arr = [0.1] * len(controller.joint_names)
+vel_arr = [0.0] * len(controller.joint_names)
 controller.set_joint_velocities(vel_arr)
 
 # Main loop:
@@ -63,6 +65,6 @@ while supervisor.step(timestep) != -1 and not rospy.is_shutdown():
     joint_msg.position = [controller.joint_position_dict[joint] for joint in joint_names]
     
     joint_pub.publish(joint_msg)
-
-# # Enter here exit cleanup code.
     pass
+
+# Enter here exit cleanup code.
