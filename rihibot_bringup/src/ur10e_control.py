@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-""" A simple controller for the UR5e"""
+""" A simple controller for the UR10e"""
 
 from pprint import pprint
 import random

@@ -75,8 +75,8 @@ class RobotController:
         init_joint_pos_arr = [0.0] * 6
         init_joint_vel_arr = [0.0] * 6
 
-        self.set_joint_positions(joint_pos_array=init_joint_pos_arr)
-        self.set_joint_velocities(joint_vel_array=init_joint_vel_arr)
+        # self.set_joint_positions(joint_pos_array=init_joint_pos_arr)
+        # self.set_joint_velocities(joint_vel_array=init_joint_vel_arr)
 
     def enable_joint_position_sensors(self):
         """Turns on every joint position sensor so the data is published via ROS message."""

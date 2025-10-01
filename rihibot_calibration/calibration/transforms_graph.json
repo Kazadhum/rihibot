@@ -99,18 +99,6 @@
       "weight": 1
     },
     {
-      "child": "accelerometer",
-      "from_bag": false,
-      "is_transformation_calibrated": true,
-      "joint_name": "wrist_3_link_accelerometer_joint",
-      "joint_params_calibrated": null,
-      "parent": "wrist_3_link",
-      "source": "wrist_3_link",
-      "target": "accelerometer",
-      "type": "fixed",
-      "weight": 1
-    },
-    {
       "child": "gyro",
       "from_bag": false,
       "is_transformation_calibrated": false,
@@ -119,6 +107,18 @@
       "parent": "wrist_3_link",
       "source": "wrist_3_link",
       "target": "gyro",
+      "type": "fixed",
+      "weight": 1
+    },
+    {
+      "child": "accelerometer",
+      "from_bag": false,
+      "is_transformation_calibrated": true,
+      "joint_name": "wrist_3_link_accelerometer_joint",
+      "joint_params_calibrated": null,
+      "parent": "wrist_3_link",
+      "source": "wrist_3_link",
+      "target": "accelerometer",
       "type": "fixed",
       "weight": 1
     },
@@ -202,17 +202,17 @@
     },
     {
       "from_bag": false,
-      "id": "accelerometer",
-      "is_world": false,
-      "pattern": null,
-      "sensor_data": "hand_imu"
-    },
-    {
-      "from_bag": false,
       "id": "gyro",
       "is_world": false,
       "pattern": null,
       "sensor_data": null
+    },
+    {
+      "from_bag": false,
+      "id": "accelerometer",
+      "is_world": false,
+      "pattern": null,
+      "sensor_data": "hand_imu"
     },
     {
       "id": "pattern_link",
