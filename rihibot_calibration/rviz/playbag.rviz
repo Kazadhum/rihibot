@@ -84,31 +84,6 @@ Visualization Manager:
     Show Visual Aids: false
     Update Topic: set_initial_estimate/update
     Value: true
-  - Class: rviz/Image
-    Enabled: true
-    Image Topic: /hand_rgb/image_raw
-    Max Value: 1
-    Median window: 5
-    Min Value: 0
-    Name: hand_rgb-Image
-    Normalize Range: true
-    Queue Size: 2
-    Transport Hint: raw
-    Unreliable: false
-    Value: false
-  - Class: rviz/Camera
-    Enabled: true
-    Image Rendering: background and overlay
-    Image Topic: /hand_rgb/image_raw
-    Name: hand_rgb-Camera
-    Overlay Alpha: 0.5
-    Queue Size: 2
-    Transport Hint: raw
-    Unreliable: false
-    Value: false
-    Visibility:
-      Value: true
-    Zoom Factor: 1
   Enabled: true
   Global Options:
     Background Color: 255; 255; 255

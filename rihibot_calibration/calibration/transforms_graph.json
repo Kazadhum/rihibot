@@ -3,15 +3,27 @@
   "graph": {},
   "links": [
     {
-      "child": "shoulder_link",
+      "child": "base_link_inertia",
       "from_bag": false,
       "is_transformation_calibrated": false,
-      "joint_name": "shoulder_pan_joint",
+      "joint_name": "base_link-base_link_inertia",
       "joint_params_calibrated": null,
       "parent": "base_link",
       "source": "base_link",
-      "target": "shoulder_link",
-      "type": "revolute",
+      "target": "base_link_inertia",
+      "type": "fixed",
+      "weight": 1
+    },
+    {
+      "child": "base",
+      "from_bag": false,
+      "is_transformation_calibrated": false,
+      "joint_name": "base_link-base_fixed_joint",
+      "joint_params_calibrated": null,
+      "parent": "base_link",
+      "source": "base_link",
+      "target": "base",
+      "type": "fixed",
       "weight": 1
     },
     {
@@ -24,6 +36,18 @@
       "source": "base_link",
       "target": "pattern_link",
       "type": "fixed",
+      "weight": 1
+    },
+    {
+      "child": "shoulder_link",
+      "from_bag": false,
+      "is_transformation_calibrated": false,
+      "joint_name": "shoulder_pan_joint",
+      "joint_params_calibrated": null,
+      "parent": "base_link_inertia",
+      "source": "base_link_inertia",
+      "target": "shoulder_link",
+      "type": "revolute",
       "weight": 1
     },
     {
@@ -87,9 +111,21 @@
       "weight": 1
     },
     {
+      "child": "flange",
+      "from_bag": false,
+      "is_transformation_calibrated": false,
+      "joint_name": "wrist_3-flange",
+      "joint_params_calibrated": null,
+      "parent": "wrist_3_link",
+      "source": "wrist_3_link",
+      "target": "flange",
+      "type": "fixed",
+      "weight": 1
+    },
+    {
       "child": "hand_rgb_link",
       "from_bag": false,
-      "is_transformation_calibrated": true,
+      "is_transformation_calibrated": false,
       "joint_name": "wrist_3_link_hand_rgb_link_joint",
       "joint_params_calibrated": null,
       "parent": "wrist_3_link",
@@ -123,6 +159,18 @@
       "weight": 1
     },
     {
+      "child": "tool0",
+      "from_bag": false,
+      "is_transformation_calibrated": false,
+      "joint_name": "flange-tool0",
+      "joint_params_calibrated": null,
+      "parent": "flange",
+      "source": "flange",
+      "target": "tool0",
+      "type": "fixed",
+      "weight": 1
+    },
+    {
       "child": "hand_rgb_optical_frame",
       "from_bag": false,
       "is_transformation_calibrated": false,
@@ -141,6 +189,13 @@
       "from_bag": false,
       "id": "base_link",
       "is_world": true,
+      "pattern": null,
+      "sensor_data": null
+    },
+    {
+      "from_bag": false,
+      "id": "base_link_inertia",
+      "is_world": false,
       "pattern": null,
       "sensor_data": null
     },
@@ -188,6 +243,27 @@
     },
     {
       "from_bag": false,
+      "id": "base",
+      "is_world": false,
+      "pattern": null,
+      "sensor_data": null
+    },
+    {
+      "from_bag": false,
+      "id": "flange",
+      "is_world": false,
+      "pattern": null,
+      "sensor_data": null
+    },
+    {
+      "from_bag": false,
+      "id": "tool0",
+      "is_world": false,
+      "pattern": null,
+      "sensor_data": null
+    },
+    {
+      "from_bag": false,
       "id": "hand_rgb_link",
       "is_world": false,
       "pattern": null,
@@ -198,7 +274,7 @@
       "id": "hand_rgb_optical_frame",
       "is_world": false,
       "pattern": null,
-      "sensor_data": "hand_rgb"
+      "sensor_data": null
     },
     {
       "from_bag": false,

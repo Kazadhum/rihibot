@@ -84,7 +84,7 @@ class RobotController:
 
     def pos_recv_callback(self, msg, joint):
         """Simple callback function to record the last joint position data from the ros message"""
-        self.joint_position_dict[joint] = msg.data
+        self.joint_position_dict[joint] = msg
 
     def set_joint_positions(self, joint_pos_array):
         """Receives an array of joint positions and calls the appropriate services to set them to the specified values."""

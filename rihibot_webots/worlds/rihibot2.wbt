@@ -1,0 +1,60 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/universal_robots/protos/UR10e.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.15842659730238687 -0.12670323679626141 0.9792074872326791 4.470350324454898
+  position 1.2308381649203124 1.5739417314351911 0.4830885165283631
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 10 11
+}
+UR10e {
+  controller "<extern>"
+  toolSlot [
+    Robot {
+      children [
+        Accelerometer {
+          translation -0.0225 0 0
+          rotation 0.7071037811809998 0.7071097811791431 0 3.14159
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.92549 0.501961 1
+                metalness 0
+              }
+              geometry DEF ACCEL_GEOM Box {
+                size 0.01 0.01 0.01
+              }
+            }
+          ]
+          boundingObject USE ACCEL_GEOM
+        }
+        Gyro {
+          translation -0.0225 0 0
+          rotation 0.7071037811809998 0.7071097811791431 0 3.14159
+          boundingObject DEF ACCEL_GEOM Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      physics Physics {
+      }
+      controller "ros"
+      controllerArgs [
+        "--auto-publish"
+        "--use-sim-time"
+        "--clock"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="/home/diogo/catkin_ws/src/robots/rihibot/rihibot_description/urdf/ur10e.urdf" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="/home/diogo/rihibot_ws/src/robots/rihibot/rihibot_description/urdf/from_webots.urdf" xmlns:xacro="http://ros.org/wiki/xacro">
   <link name="base_link">
     <visual>
       <origin xyz="0 0 0.05" rpy="-3.141592 0 0"/>
@@ -19,7 +19,7 @@
     <child link="shoulder_link"/>
     <axis xyz="0 0 1"/>
     <limit effort="330" lower="-6.28319" upper="6.28319" velocity="3.14"/>
-    <origin xyz="0 0 0.181" rpy="0 0 0"/>
+    <origin xyz="0 0 0.181" rpy="0 0 -0.000174"/>
   </joint>
   <link name="shoulder_link">
     <visual>
@@ -52,7 +52,7 @@
     <child link="upper_arm_link"/>
     <axis xyz="0 1 0"/>
     <limit effort="330" lower="-6.28319" upper="6.28319" velocity="3.14"/>
-    <origin xyz="0 0.176 0" rpy="0 1.570796 0"/>
+    <origin xyz="0 0.176 0" rpy="3.141593 1.570507 3.141593"/>
   </joint>
   <link name="upper_arm_link">
     <visual>
@@ -109,7 +109,7 @@
     <child link="forearm_link"/>
     <axis xyz="0 1 0"/>
     <limit effort="150" lower="-3.14159" upper="3.14159" velocity="3.14"/>
-    <origin xyz="0 -0.137 0.613" rpy="0 0 0"/>
+    <origin xyz="0 -0.137 0.613" rpy="0 -0.000135 0"/>
   </joint>
   <link name="forearm_link">
     <visual>
@@ -214,7 +214,7 @@
     <child link="wrist_1_link"/>
     <axis xyz="0 1 0"/>
     <limit effort="54" lower="-6.28319" upper="6.28319" velocity="6.28"/>
-    <origin xyz="0 0 0.571" rpy="0 1.570796 0"/>
+    <origin xyz="0 0 0.571" rpy="0 1.570794 0"/>
   </joint>
   <link name="wrist_1_link">
     <visual>
@@ -247,7 +247,7 @@
     <child link="wrist_2_link"/>
     <axis xyz="0 0 1"/>
     <limit effort="54" lower="-6.28319" upper="6.28319" velocity="6.28"/>
-    <origin xyz="0 0.135 0" rpy="0 0 0"/>
+    <origin xyz="0 0.135 0" rpy="0 0 -0.000011"/>
   </joint>
   <link name="wrist_2_link">
     <visual>
@@ -280,7 +280,7 @@
     <child link="wrist_3_link"/>
     <axis xyz="0 1 0"/>
     <limit effort="54" lower="-6.28319" upper="6.28319" velocity="6.28"/>
-    <origin xyz="0 0 0.12" rpy="0 0 0"/>
+    <origin xyz="0 0 0.12" rpy="0 -0.000019 0"/>
   </joint>
   <link name="wrist_3_link">
     <visual>
@@ -308,20 +308,6 @@
       </geometry>
     </collision>
   </link>
-  <link name="hand_rgb_link">
-  </link>
-  <joint name="wrist_3_link_hand_rgb_link_joint" type="fixed">
-    <parent link="wrist_3_link"/>
-    <child link="hand_rgb_link"/>
-    <origin xyz="0.0225 0.12 0" rpy="1.570793 0.000001 0"/>
-  </joint>
-  <link name="hand_rgb_optical_frame">
-  </link>
-  <joint name="hand_rgb_link_hand_rgb_optical_frame_joint" type="fixed">
-    <parent link="hand_rgb_link"/>
-    <child link="hand_rgb_optical_frame"/>
-    <origin xyz="0 0 0" rpy="-1.570801 0.000006 -1.570798"/>
-  </joint>
   <link name="gyro">
   </link>
   <joint name="wrist_3_link_gyro_joint" type="fixed">

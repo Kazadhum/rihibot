@@ -21,6 +21,13 @@
         /hand_rgb/image_raw
         /hand_rgb/camera_info 
 
+        /elbow_joint_sensor/value
+        /shoulder_lift_joint_sensor/value
+        /shoulder_pan_joint_sensor/value
+        /wrist_1_joint_sensor/value
+        /wrist_2_joint_sensor/value
+        /wrist_3_joint_sensor/value
+
         -o $(arg bag)">
     </node>
 

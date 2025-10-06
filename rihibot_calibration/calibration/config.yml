@@ -32,10 +32,10 @@
 #   - ROS Package Reference
 #       Example: package://your_package/urdf/description.urdf.xacro
 #
-description_file: "package://rihibot_description/urdf/ur10e.urdf"
+description_file: "package://rihibot_description/urdf/compiled.urdf"
 
 # The calibration framework requires a bagfile to extract the necessary data for the calibration.
-bag_file: "$ROS_BAGS/rihibot/random_joint_positions.bag"
+bag_file: "$ROS_BAGS/rihibot/data1.bag"
 
 # You must define a frame of reference for the optimization process.
 # It must exist in the transformation chains of all the sensors which are being calibrated.
@@ -70,13 +70,13 @@ sensors:
   #   /world_camera/rgb/image_raw
   #
 
-  hand_rgb:
-    link: "hand_rgb_optical_frame"
-    parent_link: "wrist_3_link"
-    child_link: "hand_rgb_link"
-    topic_name: "/hand_rgb/image_raw"
-    modality: "rgb"
-    throttle: 10
+  # hand_rgb:
+  #   link: "hand_rgb_optical_frame"
+  #   parent_link: "wrist_3_link"
+  #   child_link: "hand_rgb_link"
+  #   topic_name: "/hand_rgb/image_raw"
+  #   modality: "rgb"
+  #   throttle: 10
 
 
   # You can have more than one sensor:

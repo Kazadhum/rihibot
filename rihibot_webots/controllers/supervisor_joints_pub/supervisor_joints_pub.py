@@ -41,28 +41,29 @@ for joint in joint_names:
 
 print("Yay!")
 
-joint_pub = rospy.Publisher("/joint_states", JointState, queue_size=1)
+joint_pub = rospy.Publisher("/joint_states", JointState, queue_size=10)
 
 # Set low velocities for joints
-vel_arr = [0.1] * len(controller.joint_names)
+vel_arr = [0.01] * len(controller.joint_names)
 controller.set_joint_velocities(vel_arr)
 
 # Main loop:
 # - perform simulation steps until Webots is stopping the controller
-while supervisor.step(timestep) != -1 and not rospy.is_shutdown():
     
+while supervisor.step(timestep) != -1 and not rospy.is_shutdown():
     # Publish joint states
     joint_msg = JointState()
     joint_msg.header = Header()
     
-    sim_time = supervisor.getTime()
-    secs = int(sim_time)
-    nsecs = int((sim_time - secs) * 1e9)
+    # sim_time = rospy.Time.now()
+    # # secs = int(sim_time)
+    # nsecs = int((sim_time - secs) * 1e9)
     
-    joint_msg.header.stamp.secs = secs
-    joint_msg.header.stamp.nsecs = nsecs
+    # joint_msg.header.stamp.secs = secs
+    # joint_msg.header.stamp.nsecs = nsecs
+    joint_msg.header.stamp = controller.joint_position_dict[joint_names[0]].header.stamp
     joint_msg.name = joint_names
-    joint_msg.position = [controller.joint_position_dict[joint] for joint in joint_names]
+    joint_msg.position = [controller.joint_position_dict[joint].data for joint in joint_names]
     
     joint_pub.publish(joint_msg)
 

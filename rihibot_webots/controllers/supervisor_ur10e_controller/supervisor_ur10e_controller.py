@@ -28,7 +28,7 @@ position_sequence = []
 position_sequence.append([0.0] * len(controller.joint_names))
 
  # Set low velocities for joints
-vel_arr = [0.1] * len(controller.joint_names)
+vel_arr = [0.05] * len(controller.joint_names)
 controller.set_joint_velocities(vel_arr)
 
 random.seed(a=10)

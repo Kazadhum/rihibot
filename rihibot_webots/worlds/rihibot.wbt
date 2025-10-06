@@ -7,11 +7,10 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/tables/protos/Table.proto"
 
 WorldInfo {
-  basicTimeStep 4
 }
 Viewpoint {
   orientation -0.10989109391373034 -0.137319648035557 0.9844121401840972 4.834018654926221
-  position -0.6614275372649363 5.903348167520501 1.663319088598856
+  position -1.8538808517058911 5.730867365525056 1.7018632757160186
 }
 TexturedBackground {
 }
@@ -24,61 +23,92 @@ Table {
   size 0.5 0.5 0.5
 }
 UR10e {
+  hidden translation_6 4.224704571657778e-05 -0.00023343396971470254 0.11992822416018357
+  hidden rotation_6 -0.6482245371709344 0.6721369062783289 -0.35782248200486927 1.3592342308791872e-05
   translation 0 0 0.5
-  controller "ros"
-  controllerArgs [
-    "--clock"
-    "--use-sim-time"
-  ]
+  controller "<extern>"
   supervisor TRUE
-  synchronization FALSE
   selfCollision FALSE
   toolSlot [
-    Accelerometer {
-      translation -0.0225 0 0
-      rotation 0.7071037811809998 0.7071097811791431 0 3.14159
+    Robot {
       children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.92549 0.501961 1
-            metalness 0
-          }
-          geometry DEF ACCEL_GEOM Box {
-            size 0.01 0.01 0.01
-          }
+        Camera {
+          translation 0.0225 0 0
+          rotation 0.7071067811862364 0.7071067811862364 9.381857096790023e-07 3.14159
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 1 0
+                metalness 0
+              }
+              geometry DEF ACCEL_GEOM Box {
+                size 0.01 0.01 0.01
+              }
+            }
+            Solid {
+              rotation 0.5773496025180295 -0.5773536025152757 0.5773476025194064 -2.094395307179586
+              name "hand_rgb_optical_frame"
+              boundingObject DEF ACCEL_GEOM Box {
+                size 0.01 0.01 0.01
+              }
+            }
+          ]
+          name "hand_rgb_link"
+          width 1280
+          height 720
         }
       ]
-      boundingObject USE ACCEL_GEOM
+      name "hand_rgb_robot"
+      controller "ros"
+      controllerArgs [
+        "--use-sim-time"
+      ]
     }
-    Gyro {
-      translation -0.0225 0 0
-      rotation 0.7071037811809998 0.7071097811791431 0 3.14159
-      boundingObject USE ACCEL_GEOM
-    }
-    Camera {
-      translation 0.0225 0 0
-      rotation 0.7071067811862364 0.7071067811862364 9.381857096790023e-07 3.14159
+    Robot {
       children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0 1 0
-            metalness 0
-          }
-          geometry DEF ACCEL_GEOM Box {
-            size 0.01 0.01 0.01
-          }
-        }
-        Solid {
-          rotation 0.5773496025180295 -0.5773536025152757 0.5773476025194064 -2.094395307179586
-          name "hand_rgb_optical_frame"
-          boundingObject DEF ACCEL_GEOM Box {
-            size 0.01 0.01 0.01
-          }
+        Accelerometer {
+          translation -0.0225 0 0
+          rotation 0.7071037811809998 0.7071097811791431 0 3.14159
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.92549 0.501961 1
+                metalness 0
+              }
+              geometry DEF ACCEL_GEOM Box {
+                size 0.01 0.01 0.01
+              }
+            }
+          ]
+          boundingObject USE ACCEL_GEOM
         }
       ]
-      name "hand_rgb_link"
-      width 1280
-      height 720
+      name "acclererometer_robot"
+      physics Physics {
+      }
+      controller "ros"
+      controllerArgs [
+        "--use-sim-time"
+        "--clock"
+      ]
+    }
+    Robot {
+      translation 0.1 0 0.1
+      children [
+        Gyro {
+          translation -0.0225 0 0
+          rotation 0.7071037811809998 0.7071097811791431 0 3.14159
+          boundingObject USE ACCEL_GEOM
+        }
+      ]
+      name "gyro_robot"
+      physics Physics {
+      }
+      controller "ros"
+      controllerArgs [
+        "--use-sim-time"
+        "--clock"
+      ]
     }
   ]
 }
@@ -103,14 +133,15 @@ Solid {
   ]
 }
 Robot {
+  rotation 0 1 0 -0.261795307179586
   name "supervisor_joints_pub"
-  controller "supervisor_joints_pub"
+  controller "<none>"
   supervisor TRUE
   synchronization FALSE
 }
 Robot {
   name "supervisor_ur10e_controller"
-  controller "supervisor_ur10e_controller"
+  controller "<none>"
   supervisor TRUE
   synchronization FALSE
 }

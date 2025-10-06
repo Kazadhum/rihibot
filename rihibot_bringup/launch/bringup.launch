@@ -6,20 +6,28 @@
   <include file="$(find rihibot_webots)/launch/webots.launch">
     <arg name="mode" value="realtime"/>
     <arg name="no_gui" value="$(arg no_gui)"/>
-    <arg name="world" value="$(find rihibot_webots)/worlds/rihibot.wbt"/>
+    <arg name="world" value="$(find rihibot_webots)/worlds/rihibot2.wbt"/>
   </include>
 
+  <include file="$(find rihibot_description)/launch/ur10e.launch"/>
+  
   <param name="/use_sim_time" value="true"/>
   <arg name="auto_close" default="false" doc="Startup mode"/>
   <env name="LD_LIBRARY_PATH" value="$(env LD_LIBRARY_PATH):$(env WEBOTS_HOME)/lib/controller"/>
   <env name="PYTHONPATH" value="$(env PYTHONPATH):$(env WEBOTS_HOME)/lib/controller/python"/>
 
   <node name="imu_data_handler" pkg="rihibot_bringup" type="imu_data_handler.py" required="$(arg auto_close)"/>
-  <node name="hand_rgb_data_handler" pkg="rihibot_bringup" type="hand_rgb_data_handler.py" required="$(arg auto_close)"/>
+  <!-- <node name="hand_rgb_data_handler" pkg="rihibot_bringup" type="hand_rgb_data_handler.py" required="$(arg auto_close)"/> -->
+  <!-- <node name="joints_republisher" pkg="rihibot_bringup" type="joints_publisher.py" required="$(arg auto_close)"/> -->
 
-  <!-- Publish robot_state from URDF -->
-  <param name="robot_description" command="$(find xacro)/xacro '$(find rihibot_description)/urdf/ur5e.urdf'" />
+  <!-- <include file="$(find ur_e_webots)/launch/ur10e_joint_limited.launch"/>
+  <include file="$(find ur10e_moveit_config)/launch/moveit_planning_execution.launch"/>
+   -->
 
-  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
+  <!-- <arg name="prefix" default="" doc="Prefix to robot's joints' and links' names" /> -->
+  <!-- <include file="$(find ur_e_webots)/launch/ur10e.launch"> -->
+    <!-- <arg name="limited" value="true"/> -->
+    <!-- <arg name="prefix" value="$(arg prefix)"/> -->
+  <!-- </include> -->
 
 </launch>
