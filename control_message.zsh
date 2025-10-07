@@ -29,4 +29,4 @@ goal:
       velocities: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
       accelerations: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
       effort: [10, 10, 10, 10, 10, 10]
-      time_from_start: {secs: 3, nsecs: 0} 
+      time_from_start: {secs: 3, nsecs: 0}" 
