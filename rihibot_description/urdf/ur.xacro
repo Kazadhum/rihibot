@@ -31,33 +31,33 @@
      safety_pos_margin="$(arg safety_pos_margin)"
      safety_k_position="$(arg safety_k_position)"/>
 
-<link name="hand_rgb_link">
+  <link name="hand_rgb_link">
 </link>
-<joint name="wrist_3_link_hand_rgb_link_joint" type="fixed">
-<parent link="wrist_3_link"/>
-<child link="hand_rgb_link"/>
-<origin xyz="0.0225 0.12 0" rpy="1.570793 0.000001 0"/>
-</joint>
-<link name="hand_rgb_optical_frame">
+  <joint name="tool0_hand_rgb_link_joint" type="fixed">
+    <parent link="tool0"/>
+    <child link="hand_rgb_link"/>
+    <origin rpy="1.570793 0.000001 0" xyz="0.0225 0.12 0"/>
+  </joint>
+  <link name="hand_rgb_optical_frame">
 </link>
-<joint name="hand_rgb_link_hand_rgb_optical_frame_joint" type="fixed">
-<parent link="hand_rgb_link"/>
-<child link="hand_rgb_optical_frame"/>
-<origin xyz="0 0 0" rpy="-1.570801 0.000006 -1.570798"/>
-</joint>
-<link name="gyro">
+  <joint name="hand_rgb_link_hand_rgb_optical_frame_joint" type="fixed">
+    <parent link="hand_rgb_link"/>
+    <child link="hand_rgb_optical_frame"/>
+    <origin rpy="-1.570801 0.000006 -1.570798" xyz="0 0 0"/>
+  </joint>
+  <link name="gyro">
 </link>
-<joint name="wrist_3_link_gyro_joint" type="fixed">
-<parent link="wrist_3_link"/>
-<child link="gyro"/>
-<origin xyz="-0.0225 0.12 0" rpy="3.141591 0.000002 1.570805"/>
-</joint>
-<link name="accelerometer">
+  <joint name="tool0_gyro_joint" type="fixed">
+    <parent link="tool0"/>
+    <child link="gyro"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+  <link name="accelerometer">
 </link>
-<joint name="wrist_3_link_accelerometer_joint" type="fixed">
-<parent link="wrist_3_link"/>
-<child link="accelerometer"/>
-<origin xyz="-0.0225 0.12 0" rpy="3.141591 0.000002 1.570805"/>
-</joint>
+  <joint name="tool0_accelerometer_joint" type="fixed">
+    <parent link="tool0"/>
+    <child link="accelerometer"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
 
 </robot>

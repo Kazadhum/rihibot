@@ -8,8 +8,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.15842659730238687 -0.12670323679626141 0.9792074872326791 4.470350324454898
-  position 1.2308381649203124 1.5739417314351911 0.4830885165283631
+  orientation -0.25419797797058186 -0.3072426723104582 0.9170525221093916 4.815152775430768
+  position 0.7166061619805546 2.3326178797623522 1.2913176373275437
 }
 TexturedBackground {
 }
@@ -21,11 +21,14 @@ RectangleArena {
 UR10e {
   controller "<extern>"
   toolSlot [
+    Solid {
+      name "dummy_solid"
+    }
     Robot {
+      rotation 1 0 0 -1.5707953071795862
       children [
         Accelerometer {
-          translation -0.0225 0 0
-          rotation 0.7071037811809998 0.7071097811791431 0 3.14159
+          rotation 0 1 0 0
           children [
             Shape {
               appearance PBRAppearance {
@@ -40,8 +43,7 @@ UR10e {
           boundingObject USE ACCEL_GEOM
         }
         Gyro {
-          translation -0.0225 0 0
-          rotation 0.7071037811809998 0.7071097811791431 0 3.14159
+          rotation 0 1 0 0
           boundingObject DEF ACCEL_GEOM Box {
             size 0.01 0.01 0.01
           }
