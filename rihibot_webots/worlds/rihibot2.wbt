@@ -9,7 +9,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation -0.25419797797058186 -0.3072426723104582 0.9170525221093916 4.815152775430768
-  position 0.7166061619805546 2.3326178797623522 1.2913176373275437
+  position -0.7734366640659415 4.097610532881329 2.463147402625029
 }
 TexturedBackground {
 }
@@ -21,9 +21,6 @@ RectangleArena {
 UR10e {
   controller "<extern>"
   toolSlot [
-    Solid {
-      name "dummy_solid"
-    }
     Robot {
       rotation 1 0 0 -1.5707953071795862
       children [
