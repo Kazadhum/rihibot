@@ -60,6 +60,9 @@ Finally, clone this repository and compile:
 
 ```
 cd rihibot_ws/src
-mkdir -p robots/rihibot
+mkdir -p robots && cd robots
 git clone -b webots https://github.com/Kazadhum/rihibot.git
+
+cd ../..
+catkin_make
 ```
