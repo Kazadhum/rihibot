@@ -137,7 +137,7 @@
     {
       "child": "hand_rgb_link",
       "from_bag": false,
-      "is_transformation_calibrated": false,
+      "is_transformation_calibrated": true,
       "joint_name": "tool0_hand_rgb_link_joint",
       "joint_params_calibrated": null,
       "parent": "tool0",
@@ -274,7 +274,7 @@
       "id": "hand_rgb_optical_frame",
       "is_world": false,
       "pattern": null,
-      "sensor_data": null
+      "sensor_data": "hand_rgb"
     },
     {
       "from_bag": false,
