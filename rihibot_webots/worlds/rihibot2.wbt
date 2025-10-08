@@ -77,3 +77,24 @@ UR10e {
     }
   ]
 }
+
+Solid {
+  translation 4.36168 -0.400363 0.27982
+  rotation -0.129876 -0.0996574 0.986509 1.84569
+  children [
+    Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "../libraries/charuco_800x600_5x5_100/texture.png"
+          ]
+        }
+      }
+      geometry Mesh {
+        url [
+          "../libraries/charuco_800x600_5x5_100/charuco_800x600_5x5_100.dae"
+        ]
+      }
+    }
+  ]
+}
