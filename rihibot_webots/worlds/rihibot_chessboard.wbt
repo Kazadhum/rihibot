@@ -1,0 +1,100 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/universal_robots/protos/UR10e.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.03957033217187465 0.03068784218773499 0.9987454356109309 4.459583401830904
+  position 1.2136474577162566 1.5660218322043957 0.084273197564186
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 10 11
+}
+UR10e {
+  controller "<extern>"
+  toolSlot [
+    Robot {
+      rotation 1 0 0 -1.5707953071795862
+      children [
+        Accelerometer {
+          rotation 0 1 0 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.92549 0.501961 1
+                metalness 0
+              }
+              geometry DEF ACCEL_GEOM Box {
+                size 0.01 0.01 0.01
+              }
+            }
+          ]
+          boundingObject USE ACCEL_GEOM
+        }
+        Gyro {
+          rotation 0 1 0 0
+          boundingObject DEF ACCEL_GEOM Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      physics Physics {
+      }
+      controller "ros"
+      controllerArgs [
+        "--auto-publish"
+        "--use-sim-time"
+        "--clock"
+      ]
+    }
+    Robot {
+      rotation 1 0 0 -1.5707953071795862
+      children [
+        Camera {
+          rotation 0.5773492691885823 0.5773512691895147 0.5773502691890485 -2.094395307179586
+          name "hand_rgb_link"
+          width 1280
+          height 720
+        }
+      ]
+      name "camera_robot"
+      physics Physics {
+      }
+      controller "ros"
+      controllerArgs [
+        "--auto-publish"
+        "--use-sim-time"
+        "--clock"
+      ]
+    }
+  ]
+}
+
+Solid {
+  translation 4.36168 -0.400363 0.27982
+  rotation -0.129876 -0.0996574 0.986509 1.84569
+  children [
+    Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "../libraries/chessboard_1200x900_10x7/texture.png"
+          ]
+        }
+      }
+      geometry Mesh {
+        url [
+          "../libraries/chessboard_1200x900_10x7/chessboard_1200x900_10x7.dae"
+        ]
+      }
+    }
+  ]
+}

@@ -23,7 +23,7 @@ class CameraDataHandler:
         hand_rgb_get_info_srv = rospy.ServiceProxy(
             name="/hand_rgb_link/get_info", service_class=camera_get_info
         )
-
+        
         timestep = int(robot_get_basic_time_step_srv().value)
 
         hand_rgb_enable_srv(value=timestep)

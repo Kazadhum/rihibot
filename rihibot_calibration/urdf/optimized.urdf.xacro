@@ -282,7 +282,7 @@
   </joint>
   <link name="hand_rgb_link"/>
   <joint name="tool0_hand_rgb_link_joint" type="fixed">
-    <origin xyz="0.0225 0.12 0.0" rpy="1.570793 1e-06 0.0"/>
+    <origin xyz="0.0 0.0 0.0" rpy="-1.5707963 -1.5707963 0.0"/>
     <parent link="tool0"/>
     <child link="hand_rgb_link"/>
   </joint>
@@ -300,7 +300,7 @@
   </joint>
   <link name="accelerometer"/>
   <joint name="tool0_accelerometer_joint" type="fixed">
-    <origin xyz="-0.017516383748223945 -0.011142495796901712 -0.00902252789045713" rpy="0.0002665379331080773 0.004899270832039293 -0.0030877532323734507"/>
+    <origin xyz="-0.014133962405914902 0.04218567218123059 -0.07632322268552906" rpy="0.0031500014025112187 0.000524009005636202 0.007370133530843516"/>
     <parent link="tool0"/>
     <child link="accelerometer"/>
   </joint>

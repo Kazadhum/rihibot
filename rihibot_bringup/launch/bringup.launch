@@ -6,7 +6,7 @@
   <include file="$(find rihibot_webots)/launch/webots.launch">
     <arg name="mode" value="realtime"/>
     <arg name="no_gui" value="$(arg no_gui)"/>
-    <arg name="world" value="$(find rihibot_webots)/worlds/rihibot2.wbt"/>
+    <arg name="world" value="$(find rihibot_webots)/worlds/rihibot_chessboard.wbt"/>
   </include>
 
   <include file="$(find rihibot_description)/launch/ur10e.launch"/>
