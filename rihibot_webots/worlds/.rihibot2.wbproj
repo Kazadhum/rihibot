@@ -8,3 +8,4 @@ orthographicViewHeight: 1
 textFiles: -1
 consoles: Console:All:All
 renderingDevicePerspectives: UR10e:shoulder_link:upper_arm_link:forearm_link:wrist_1_link:wrist_2_link:wrist_3_link:camera_robot:camera;1;0.338889;0;0
+renderingDevicePerspectives: UR10e:shoulder_link:upper_arm_link:forearm_link:wrist_1_link:wrist_2_link:wrist_3_link:camera_robot:hand_rgb_link;1;0.338889;0;0

@@ -17,7 +17,7 @@
   <env name="PYTHONPATH" value="$(env PYTHONPATH):$(env WEBOTS_HOME)/lib/controller/python"/>
 
   <node name="imu_data_handler" pkg="rihibot_bringup" type="imu_data_handler.py" required="$(arg auto_close)"/>
-  <!-- <node name="hand_rgb_data_handler" pkg="rihibot_bringup" type="hand_rgb_data_handler.py" required="$(arg auto_close)"/> -->
+  <node name="hand_rgb_data_handler" pkg="rihibot_bringup" type="hand_rgb_data_handler.py" required="$(arg auto_close)"/>
   <!-- <node name="joints_republisher" pkg="rihibot_bringup" type="joints_publisher.py" required="$(arg auto_close)"/> -->
 
   <!-- <include file="$(find ur_e_webots)/launch/ur10e_joint_limited.launch"/>
