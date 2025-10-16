@@ -357,7 +357,16 @@
     <child link="tool0"/>
   </joint>
   <link name="hand_rgb_link">
-</link>
+    <visual>
+      <origin xyz="0.01 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rihibot_description/meshes/rgb_camera/rgb_camera.stl"
+          scale="1 1 1" />
+      </geometry>
+      <!-- <xacro:insert_block name="color_rviz" /> -->
+    </visual>
+  </link>
   <joint name="tool0_hand_rgb_link_joint" type="fixed">
     <parent link="tool0"/>
     <child link="hand_rgb_link"/>

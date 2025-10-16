@@ -33,21 +33,6 @@
 
     <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
     <!-- Evaluation -->
-    <node type="rgb_to_imu_evaluation" pkg="atom_evaluation" 
-        name="hand_rgb_to_hand_imu_pattern_1_evaluation"
-        args="-cs hand_rgb -is hand_imu -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
-        output="screen"/>
-
-    <node type="inter_collection_rgb_to_imu_evaluation" pkg="atom_evaluation" 
-        name="inter_collection_hand_rgb_to_hand_imu_pattern_1_evaluation"
-        args="-cs hand_rgb -is hand_imu -wf base_link -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
-        output="screen"/>
-
-    <node type="inter_collection_rgb_to_rgb_evaluation" pkg="atom_evaluation" 
-        name="inter_collection_hand_rgb_to_hand_rgb_pattern_1_evaluation"
-        args="-ss hand_rgb -st hand_rgb -wf base_link -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
-        output="screen"/>
-
     <node type="inter_collection_imu_to_imu_evaluation" pkg="atom_evaluation" 
         name="inter_collection_hand_imu_to_hand_imu_pattern_1_evaluation"
         args="-ss hand_imu -st hand_imu -wf base_link -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 

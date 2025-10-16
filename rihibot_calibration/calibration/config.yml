@@ -35,7 +35,7 @@
 description_file: "package://rihibot_description/urdf/compiled.urdf"
 
 # The calibration framework requires a bagfile to extract the necessary data for the calibration.
-bag_file: "$ROS_BAGS/rihibot/data3.bag"
+bag_file: "$ROS_BAGS/rihibot/test.bag"
 
 # You must define a frame of reference for the optimization process.
 # It must exist in the transformation chains of all the sensors which are being calibrated.
@@ -69,14 +69,14 @@ sensors:
   # you should not add the "compressed" part, use only:
   #   /world_camera/rgb/image_raw
   #
-  hand_rgb:
-    link: "hand_rgb_optical_frame"
-    parent_link: "tool0"
-    child_link: "hand_rgb_link"
-    topic_name: "/hand_rgb/image_raw"
-    modality: "rgb"
-    throttle: 10
-
+  # hand_rgb:
+  #   link: "hand_rgb_optical_frame"
+  #   parent_link: "tool0"
+  #   child_link: "hand_rgb_link"
+  #   topic_name: "/hand_rgb/image_raw"
+  #   modality: "rgb"
+  #   throttle: 10
+  #
 
   # You can have more than one sensor:
   hand_imu:
