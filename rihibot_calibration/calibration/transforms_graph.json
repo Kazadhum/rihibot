@@ -27,6 +27,18 @@
       "weight": 1
     },
     {
+      "child": "chessboard_1200x900_10x7",
+      "from_bag": false,
+      "is_transformation_calibrated": false,
+      "joint_name": "base_link_to_chessboard_1200x900_10x7",
+      "joint_params_calibrated": null,
+      "parent": "base_link",
+      "source": "base_link",
+      "target": "chessboard_1200x900_10x7",
+      "type": "fixed",
+      "weight": 1
+    },
+    {
       "child": "pattern_link",
       "from_bag": false,
       "is_transformation_calibrated": true,
@@ -289,6 +301,13 @@
       "is_world": false,
       "pattern": null,
       "sensor_data": "hand_imu"
+    },
+    {
+      "from_bag": false,
+      "id": "chessboard_1200x900_10x7",
+      "is_world": false,
+      "pattern": null,
+      "sensor_data": null
     },
     {
       "id": "pattern_link",

@@ -68,5 +68,36 @@
     <child link="accelerometer"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
   </joint>
+  
+  <!-- chessboard link-->
+    <link name="chessboard_1200x900_10x7">
+        <visual>
+          <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <geometry>
+              <mesh filename="package://rihibot_webots/libraries/chessboard_1200x900_10x7/chessboard_1200x900_10x7.dae"
+                    scale="1 1 1" />
+            </geometry>
+            <!-- <material name="tripod_color" /> -->
+        </visual>
+        <collision name="tripod_collision">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+              <mesh filename="package://rihibot_webots/libraries/chessboard_1200x900_10x7/chessboard_1200x900_10x7.dae"
+                    scale="1 1 1" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.0" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+        </inertial>
+    </link>
+  
+    <!-- tripod plate to tripod center support -->
+    <joint name="base_link_to_chessboard_1200x900_10x7" type="fixed">
+        <parent link="base_link" />
+        <child link="chessboard_1200x900_10x7"/>
+        <origin xyz="4.36168 -0.400363 0.27982 " rpy="-0.0000002 -0.2617985 1.8325937" />
+    </joint>
 
 </robot>
