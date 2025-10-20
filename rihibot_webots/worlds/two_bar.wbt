@@ -1,0 +1,152 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+  gravity 0
+}
+Viewpoint {
+  orientation -0.14729284806945336 -0.030466822548926364 0.9886235833882182 3.545034055697477
+  position 4.9473817769187605 2.7536584298867255 1.8194224495740947
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  rotation 0 1 0 0
+  floorSize 10 11
+}
+Solid {
+  translation 4.36168 -0.400363 0.27982
+  rotation -0.1298760402725039 -0.09965743090219155 0.9865093059009175 1.84569
+  children [
+    Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "../libraries/chessboard_1200x900_10x7/texture.png"
+          ]
+        }
+      }
+      geometry Mesh {
+        url [
+          "../libraries/chessboard_1200x900_10x7/chessboard_1200x900_10x7.dae"
+        ]
+      }
+    }
+  ]
+}
+Robot {
+  children [
+    Solid {
+      translation 0 0 0.05
+      rotation 0 1 0 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.203922 0.396078 0.643137
+            metalness 0
+          }
+          geometry DEF BASELINK_GEOM Box {
+            size 1 1 0.1
+          }
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            anchor 0 0 0.05
+          }
+          device [
+            PositionSensor {
+              name "joint1_sensor"
+            }
+            RotationalMotor {
+              name "joint1"
+            }
+          ]
+          endPoint Solid {
+            translation 0 0.000246857 0.42
+            rotation 1 0 0 1.57
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.678431 0.498039 0.658824
+                  metalness 0
+                }
+                geometry DEF BARLINK_GEOM Box {
+                  size 0.1 0.5 0.05
+                }
+              }
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  axis 0 0 1
+                  anchor 0 0.25 0
+                }
+                device [
+                  PositionSensor {
+                    name "joint2_sensor"
+                  }
+                  RotationalMotor {
+                    name "joint2"
+                  }
+                ]
+                endPoint Solid {
+                  translation 1.250400456304757e-16 0.40999999999999964 -8.326672684688674e-17
+                  rotation -0.39202695236118923 -1.7409493951400866e-16 -0.9199537317835054 8.496020627701124e-16
+                  children [
+                    Accelerometer {
+                      translation 0 0.07 0
+                      children [
+                        Shape {
+                          appearance PBRAppearance {
+                            baseColor 0.45098 0.823529 0.0862745
+                            metalness 0
+                          }
+                          geometry Box {
+                            size 0.02 0.02 0.02
+                          }
+                        }
+                      ]
+                    }
+                    Shape {
+                      appearance PBRAppearance {
+                        baseColor 0.913725 0.72549 0.431373
+                        metalness 0
+                      }
+                      geometry DEF EE_GEOM Box {
+                        size 0.1 0.1 0.1
+                      }
+                    }
+                  ]
+                  name "endeffector"
+                  boundingObject USE EE_GEOM
+                  physics Physics {
+                  }
+                }
+              }
+            ]
+            name "bar_link"
+            boundingObject USE BARLINK_GEOM
+          }
+        }
+      ]
+      name "bar_base_link"
+      boundingObject USE BASELINK_GEOM
+    }
+  ]
+  name "twobarbot"
+  controller "ros"
+  controllerArgs [
+    "--use-sim-time"
+    "--auto-publish"
+    "--clock"
+  ]
+}
+Robot {
+  name "supervisor_joints"
+  controller "supervisor_joints_pub_twobar"
+  supervisor TRUE
+  synchronization FALSE
+}

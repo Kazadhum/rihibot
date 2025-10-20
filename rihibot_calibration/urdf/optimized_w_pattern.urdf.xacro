@@ -1,307 +1,323 @@
 <?xml version="1.0" ?>
-<robot name="ur10e_robot" version="1.0">
-  <transmission name="shoulder_pan_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="shoulder_pan_joint">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="shoulder_pan_motor">
-      <mechanicalReduction>1.0</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="shoulder_lift_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="shoulder_lift_joint">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="shoulder_lift_motor">
-      <mechanicalReduction>1.0</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="elbow_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="elbow_joint">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="elbow_motor">
-      <mechanicalReduction>1.0</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="wrist_1_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="wrist_1_joint">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="wrist_1_motor">
-      <mechanicalReduction>1.0</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="wrist_2_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="wrist_2_joint">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="wrist_2_motor">
-      <mechanicalReduction>1.0</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="wrist_3_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="wrist_3_joint">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="wrist_3_motor">
-      <mechanicalReduction>1.0</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <link name="base_link"/>
-  <link name="base_link_inertia">
-    <inertial>
-      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
-      <mass value="4.0"/>
-      <inertia ixx="0.0061063308908" ixy="0.0" ixz="0.0" iyy="0.0061063308908" iyz="0.0" izz="0.01125"/>
-    </inertial>
+<robot name="/home/diogo/ros_workspaces/rihibot_ws/src/robots/rihibot/rihibot_description/urdf/UR10e_test.urdf" version="1.0">
+  <link name="base_link">
     <visual>
-      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 3.141592653589793"/>
+      <origin xyz="0.0 0.0 0.05" rpy="-3.141592 0.0 0.0"/>
       <geometry>
-        <mesh filename="package://ur_description/meshes/ur10e/visual/base.dae"/>
+        <cylinder radius="0.095" length="0.1"/>
       </geometry>
-      <material name="LightGrey">
-        <color rgba="0.7 0.7 0.7 1.0"/>
-      </material>
     </visual>
     <collision>
-      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 3.141592653589793"/>
+      <origin xyz="0.0 0.0 0.05" rpy="-3.141592 0.0 0.0"/>
       <geometry>
-        <mesh filename="package://ur_description/meshes/ur10e/collision/base.stl"/>
+        <cylinder radius="0.095" length="0.1"/>
       </geometry>
     </collision>
   </link>
-  <link name="shoulder_link">
-    <inertial>
-      <origin xyz="0.021 -0.027 0.0" rpy="1.570796326794897 0.0 0.0"/>
-      <mass value="7.369"/>
-      <inertia ixx="0.03408" ixy="2e-05" ixz="-0.00425" iyy="0.03529" iyz="8e-05" izz="0.02156"/>
-    </inertial>
-    <visual>
-      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 3.141592653589793"/>
-      <geometry>
-        <mesh filename="package://ur_description/meshes/ur10e/visual/shoulder.dae"/>
-      </geometry>
-      <material name="LightGrey">
-        <color rgba="0.7 0.7 0.7 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 3.141592653589793"/>
-      <geometry>
-        <mesh filename="package://ur_description/meshes/ur10e/collision/shoulder.stl"/>
-      </geometry>
-    </collision>
-  </link>
-  <link name="upper_arm_link">
-    <inertial>
-      <origin xyz="-0.2327 0.0 0.158" rpy="0.0 0.0 0.0"/>
-      <mass value="13.051"/>
-      <inertia ixx="0.02814" ixy="5e-05" ixz="-0.01561" iyy="0.77068" iyz="2e-05" izz="0.76943"/>
-    </inertial>
-    <visual>
-      <origin xyz="0.0 0.0 0.1762" rpy="1.5707963267948966 0.0 -1.5707963267948966"/>
-      <geometry>
-        <mesh filename="package://ur_description/meshes/ur10e/visual/upperarm.dae"/>
-      </geometry>
-      <material name="LightGrey">
-        <color rgba="0.7 0.7 0.7 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0.0 0.0 0.1762" rpy="1.5707963267948966 0.0 -1.5707963267948966"/>
-      <geometry>
-        <mesh filename="package://ur_description/meshes/ur10e/collision/upperarm.stl"/>
-      </geometry>
-    </collision>
-  </link>
-  <link name="forearm_link">
-    <inertial>
-      <origin xyz="-0.33155 0.0 0.068" rpy="0.0 0.0 0.0"/>
-      <mass value="3.989"/>
-      <inertia ixx="0.01014" ixy="8e-05" ixz="0.00916" iyy="0.30928" iyz="0.0" izz="0.30646"/>
-    </inertial>
-    <visual>
-      <origin xyz="0.0 0.0 0.0393" rpy="1.5707963267948966 0.0 -1.5707963267948966"/>
-      <geometry>
-        <mesh filename="package://ur_description/meshes/ur10e/visual/forearm.dae"/>
-      </geometry>
-      <material name="LightGrey">
-        <color rgba="0.7 0.7 0.7 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0.0 0.0 0.0393" rpy="1.5707963267948966 0.0 -1.5707963267948966"/>
-      <geometry>
-        <mesh filename="package://ur_description/meshes/ur10e/collision/forearm.stl"/>
-      </geometry>
-    </collision>
-  </link>
-  <link name="wrist_1_link">
-    <inertial>
-      <origin xyz="0.0 -0.018 0.007" rpy="1.570796326794897 0.0 0.0"/>
-      <mass value="2.1"/>
-      <inertia ixx="0.00296" ixy="-1e-05" ixz="0.0" iyy="0.00222" iyz="-0.00024" izz="0.00258"/>
-    </inertial>
-    <visual>
-      <origin xyz="0.0 0.0 -0.135" rpy="1.5707963267948966 0.0 0.0"/>
-      <geometry>
-        <mesh filename="package://ur_description/meshes/ur10e/visual/wrist1.dae"/>
-      </geometry>
-      <material name="LightGrey">
-        <color rgba="0.7 0.7 0.7 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0.0 0.0 -0.135" rpy="1.5707963267948966 0.0 0.0"/>
-      <geometry>
-        <mesh filename="package://ur_description/meshes/ur10e/collision/wrist1.stl"/>
-      </geometry>
-    </collision>
-  </link>
-  <link name="wrist_2_link">
-    <inertial>
-      <origin xyz="0.0 0.018 -0.007" rpy="-1.570796326794897 0.0 0.0"/>
-      <mass value="1.98"/>
-      <inertia ixx="0.00296" ixy="-1e-05" ixz="0.0" iyy="0.00222" iyz="-0.00024" izz="0.00258"/>
-    </inertial>
-    <visual>
-      <origin xyz="0.0 0.0 -0.12" rpy="0.0 0.0 0.0"/>
-      <geometry>
-        <mesh filename="package://ur_description/meshes/ur10e/visual/wrist2.dae"/>
-      </geometry>
-      <material name="LightGrey">
-        <color rgba="0.7 0.7 0.7 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0.0 0.0 -0.12" rpy="0.0 0.0 0.0"/>
-      <geometry>
-        <mesh filename="package://ur_description/meshes/ur10e/collision/wrist2.stl"/>
-      </geometry>
-    </collision>
-  </link>
-  <link name="wrist_3_link">
-    <inertial>
-      <origin xyz="0.0 0.0 -0.026" rpy="0.0 0.0 0.0"/>
-      <mass value="0.615"/>
-      <inertia ixx="0.0004" ixy="0.0" ixz="0.0" iyy="0.00041" iyz="0.0" izz="0.00034"/>
-    </inertial>
-    <visual>
-      <origin xyz="0.0 0.0 -0.1168" rpy="1.5707963267948966 0.0 0.0"/>
-      <geometry>
-        <mesh filename="package://ur_description/meshes/ur10e/visual/wrist3.dae"/>
-      </geometry>
-      <material name="LightGrey">
-        <color rgba="0.7 0.7 0.7 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0.0 0.0 -0.1168" rpy="1.5707963267948966 0.0 0.0"/>
-      <geometry>
-        <mesh filename="package://ur_description/meshes/ur10e/collision/wrist3.stl"/>
-      </geometry>
-    </collision>
-  </link>
-  <joint name="base_link-base_link_inertia" type="fixed">
-    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 3.141592653589793"/>
-    <parent link="base_link"/>
-    <child link="base_link_inertia"/>
-  </joint>
   <joint name="shoulder_pan_joint" type="revolute">
-    <origin xyz="0.0 0.0 0.1807" rpy="0.0 0.0 0.0"/>
+    <origin xyz="0.0 0.0 0.181" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 0.0 1.0"/>
-    <parent link="base_link_inertia"/>
+    <parent link="base_link"/>
     <child link="shoulder_link"/>
-    <limit effort="330.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="2.0943951023931953"/>
-    <dynamics damping="0.0" friction="0.0"/>
+    <limit effort="330.0" lower="-6.28319" upper="6.28319" velocity="3.14"/>
   </joint>
+  <link name="shoulder_link">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="-3.141592 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.077" length="0.183"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="-3.141592 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.077" length="0.183"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0.05 0.0" rpy="1.570797 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.076" length="0.093"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.05 0.0" rpy="1.570797 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.076" length="0.093"/>
+      </geometry>
+    </collision>
+  </link>
   <joint name="shoulder_lift_joint" type="revolute">
-    <origin xyz="0.0 0.0 0.0" rpy="1.570796327 0.0 0.0"/>
-    <axis xyz="0.0 0.0 1.0"/>
+    <origin xyz="0.0 0.176 0.0" rpy="0.0 1.570796 0.0"/>
+    <axis xyz="0.0 1.0 0.0"/>
     <parent link="shoulder_link"/>
     <child link="upper_arm_link"/>
-    <limit effort="330.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="2.0943951023931953"/>
-    <dynamics damping="0.0" friction="0.0"/>
+    <limit effort="330.0" lower="-6.28319" upper="6.28319" velocity="3.14"/>
   </joint>
+  <link name="upper_arm_link">
+    <visual>
+      <origin xyz="0.0 0.0 0.33" rpy="-3.141592 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.058" length="0.463"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.33" rpy="-3.141592 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.058" length="0.463"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0.0 0.06" rpy="-3.141592 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.076" length="0.1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.06" rpy="-3.141592 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.076" length="0.1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.077" length="0.183"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.077" length="0.183"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 -0.005 0.612" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.061" length="0.149"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 -0.005 0.612" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.061" length="0.149"/>
+      </geometry>
+    </collision>
+  </link>
   <joint name="elbow_joint" type="revolute">
-    <origin xyz="-0.6127 0.0 0.0" rpy="0.0 0.0 0.0"/>
-    <axis xyz="0.0 0.0 1.0"/>
+    <origin xyz="0.0 -0.137 0.613" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0.0 1.0 0.0"/>
     <parent link="upper_arm_link"/>
     <child link="forearm_link"/>
-    <limit effort="150.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="3.141592653589793"/>
-    <dynamics damping="0.0" friction="0.0"/>
+    <limit effort="150.0" lower="-3.14159" upper="3.14159" velocity="3.14"/>
   </joint>
+  <link name="forearm_link">
+    <visual>
+      <origin xyz="0.0 0.0 0.307" rpy="-3.141592 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.047" length="0.49"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.307" rpy="-3.141592 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.047" length="0.49"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0.009 0.57" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.046" length="0.129"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.009 0.57" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.046" length="0.129"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0.06 0.0" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.058" length="0.05"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.06 0.0" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.058" length="0.05"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0.06 -0.025" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.058"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.06 -0.025" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.058"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0.06 0.025" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.058"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.06 0.025" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.058"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.057" length="0.03"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.057" length="0.03"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0.015 0.05" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.057"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.015 0.05" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.057"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 -0.015 0.05" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.057"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 -0.015 0.05" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.057"/>
+      </geometry>
+    </collision>
+  </link>
   <joint name="wrist_1_joint" type="revolute">
-    <origin xyz="-0.57155 0.0 0.17415" rpy="0.0 0.0 0.0"/>
-    <axis xyz="0.0 0.0 1.0"/>
+    <origin xyz="0.0 0.0 0.571" rpy="0.0 1.570796 0.0"/>
+    <axis xyz="0.0 1.0 0.0"/>
     <parent link="forearm_link"/>
     <child link="wrist_1_link"/>
-    <limit effort="54.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="3.141592653589793"/>
-    <dynamics damping="0.0" friction="0.0"/>
+    <limit effort="54.0" lower="-6.28319" upper="6.28319" velocity="6.28"/>
   </joint>
+  <link name="wrist_1_link">
+    <visual>
+      <origin xyz="0.0 0.095 0.0" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.045" length="0.075"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.095 0.0" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.045" length="0.075"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0.134 0.007" rpy="-3.141592 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.048" length="0.126"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.134 0.007" rpy="-3.141592 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.048" length="0.126"/>
+      </geometry>
+    </collision>
+  </link>
   <joint name="wrist_2_joint" type="revolute">
-    <origin xyz="0.0 -0.11985 -2.458164590756244e-11" rpy="1.570796327 0.0 0.0"/>
+    <origin xyz="0.0 0.135 0.0" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="wrist_1_link"/>
     <child link="wrist_2_link"/>
-    <limit effort="54.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="3.141592653589793"/>
-    <dynamics damping="0.0" friction="0.0"/>
+    <limit effort="54.0" lower="-6.28319" upper="6.28319" velocity="6.28"/>
   </joint>
+  <link name="wrist_2_link">
+    <visual>
+      <origin xyz="0.0 0.007 0.1195" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.047" length="0.12"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.007 0.1195" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.047" length="0.12"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0.0 0.0805" rpy="-3.141592 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.046" length="0.043"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0805" rpy="-3.141592 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.046" length="0.043"/>
+      </geometry>
+    </collision>
+  </link>
   <joint name="wrist_3_joint" type="revolute">
-    <origin xyz="0.0 0.11655 -2.390480459346185e-11" rpy="1.570796326589793 3.141592653589793 3.141592653589793"/>
-    <axis xyz="0.0 0.0 1.0"/>
+    <origin xyz="0.0 0.0 0.12" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0.0 1.0 0.0"/>
     <parent link="wrist_2_link"/>
     <child link="wrist_3_link"/>
-    <limit effort="54.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="3.141592653589793"/>
-    <dynamics damping="0.0" friction="0.0"/>
+    <limit effort="54.0" lower="-6.28319" upper="6.28319" velocity="6.28"/>
   </joint>
-  <link name="base"/>
-  <joint name="base_link-base_fixed_joint" type="fixed">
-    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 3.141592653589793"/>
-    <parent link="base_link"/>
-    <child link="base"/>
-  </joint>
-  <link name="flange"/>
-  <joint name="wrist_3-flange" type="fixed">
-    <origin xyz="0.0 0.0 0.0" rpy="0.0 -1.5707963267948966 -1.5707963267948966"/>
-    <parent link="wrist_3_link"/>
-    <child link="flange"/>
-  </joint>
-  <link name="tool0"/>
-  <joint name="flange-tool0" type="fixed">
-    <origin xyz="0.0 0.0 0.0" rpy="1.5707963267948966 0.0 1.5707963267948966"/>
-    <parent link="flange"/>
-    <child link="tool0"/>
-  </joint>
-  <link name="hand_rgb_link"/>
-  <joint name="tool0_hand_rgb_link_joint" type="fixed">
-    <origin xyz="0.0 0.0 0.0" rpy="-1.5707963 -1.5707963 0.0"/>
-    <parent link="tool0"/>
-    <child link="hand_rgb_link"/>
-  </joint>
-  <link name="hand_rgb_optical_frame"/>
-  <joint name="hand_rgb_link_hand_rgb_optical_frame_joint" type="fixed">
-    <origin xyz="0.0 0.0 0.0" rpy="-1.570801 6e-06 -1.570798"/>
-    <parent link="hand_rgb_link"/>
-    <child link="hand_rgb_optical_frame"/>
-  </joint>
+  <link name="wrist_3_link">
+    <visual>
+      <origin xyz="0.0 0.086 0.0" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.045" length="0.048"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.086 0.0" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.045" length="0.048"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0.109 0.0" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.032" length="0.018"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.109 0.0" rpy="-1.570796 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.032" length="0.018"/>
+      </geometry>
+    </collision>
+  </link>
   <link name="gyro"/>
-  <joint name="tool0_gyro_joint" type="fixed">
-    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
-    <parent link="tool0"/>
+  <joint name="wrist_3_link_gyro_joint" type="fixed">
+    <origin xyz="0.0 0.13 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="wrist_3_link"/>
     <child link="gyro"/>
   </joint>
   <link name="accelerometer"/>
-  <joint name="tool0_accelerometer_joint" type="fixed">
-    <origin xyz="0.04406709983384231 0.030022939246417114 0.0069761349108057764" rpy="0.0025215245161033825 0.00032166119894064125 -0.00033331493509894107"/>
-    <parent link="tool0"/>
+  <joint name="wrist_3_link_accelerometer_joint" type="fixed">
+    <origin xyz="-0.16623351723058002 0.13850167432629829 0.040141947910749425" rpy="2.628944373253052e-06 -3.786397465896448e-05 -6.816176943571222e-05"/>
+    <parent link="wrist_3_link"/>
     <child link="accelerometer"/>
   </joint>
 </robot>

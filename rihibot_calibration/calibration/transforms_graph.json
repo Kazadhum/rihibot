@@ -3,39 +3,15 @@
   "graph": {},
   "links": [
     {
-      "child": "base_link_inertia",
+      "child": "shoulder_link",
       "from_bag": false,
       "is_transformation_calibrated": false,
-      "joint_name": "base_link-base_link_inertia",
+      "joint_name": "shoulder_pan_joint",
       "joint_params_calibrated": null,
       "parent": "base_link",
       "source": "base_link",
-      "target": "base_link_inertia",
-      "type": "fixed",
-      "weight": 1
-    },
-    {
-      "child": "base",
-      "from_bag": false,
-      "is_transformation_calibrated": false,
-      "joint_name": "base_link-base_fixed_joint",
-      "joint_params_calibrated": null,
-      "parent": "base_link",
-      "source": "base_link",
-      "target": "base",
-      "type": "fixed",
-      "weight": 1
-    },
-    {
-      "child": "chessboard_1200x900_10x7",
-      "from_bag": false,
-      "is_transformation_calibrated": false,
-      "joint_name": "base_link_to_chessboard_1200x900_10x7",
-      "joint_params_calibrated": null,
-      "parent": "base_link",
-      "source": "base_link",
-      "target": "chessboard_1200x900_10x7",
-      "type": "fixed",
+      "target": "shoulder_link",
+      "type": "revolute",
       "weight": 1
     },
     {
@@ -48,18 +24,6 @@
       "source": "base_link",
       "target": "pattern_link",
       "type": "fixed",
-      "weight": 1
-    },
-    {
-      "child": "shoulder_link",
-      "from_bag": false,
-      "is_transformation_calibrated": false,
-      "joint_name": "shoulder_pan_joint",
-      "joint_params_calibrated": null,
-      "parent": "base_link_inertia",
-      "source": "base_link_inertia",
-      "target": "shoulder_link",
-      "type": "revolute",
       "weight": 1
     },
     {
@@ -123,49 +87,13 @@
       "weight": 1
     },
     {
-      "child": "flange",
-      "from_bag": false,
-      "is_transformation_calibrated": false,
-      "joint_name": "wrist_3-flange",
-      "joint_params_calibrated": null,
-      "parent": "wrist_3_link",
-      "source": "wrist_3_link",
-      "target": "flange",
-      "type": "fixed",
-      "weight": 1
-    },
-    {
-      "child": "tool0",
-      "from_bag": false,
-      "is_transformation_calibrated": false,
-      "joint_name": "flange-tool0",
-      "joint_params_calibrated": null,
-      "parent": "flange",
-      "source": "flange",
-      "target": "tool0",
-      "type": "fixed",
-      "weight": 1
-    },
-    {
-      "child": "hand_rgb_link",
-      "from_bag": false,
-      "is_transformation_calibrated": false,
-      "joint_name": "tool0_hand_rgb_link_joint",
-      "joint_params_calibrated": null,
-      "parent": "tool0",
-      "source": "tool0",
-      "target": "hand_rgb_link",
-      "type": "fixed",
-      "weight": 1
-    },
-    {
       "child": "gyro",
       "from_bag": false,
       "is_transformation_calibrated": false,
-      "joint_name": "tool0_gyro_joint",
+      "joint_name": "wrist_3_link_gyro_joint",
       "joint_params_calibrated": null,
-      "parent": "tool0",
-      "source": "tool0",
+      "parent": "wrist_3_link",
+      "source": "wrist_3_link",
       "target": "gyro",
       "type": "fixed",
       "weight": 1
@@ -174,23 +102,11 @@
       "child": "accelerometer",
       "from_bag": false,
       "is_transformation_calibrated": true,
-      "joint_name": "tool0_accelerometer_joint",
+      "joint_name": "wrist_3_link_accelerometer_joint",
       "joint_params_calibrated": null,
-      "parent": "tool0",
-      "source": "tool0",
+      "parent": "wrist_3_link",
+      "source": "wrist_3_link",
       "target": "accelerometer",
-      "type": "fixed",
-      "weight": 1
-    },
-    {
-      "child": "hand_rgb_optical_frame",
-      "from_bag": false,
-      "is_transformation_calibrated": false,
-      "joint_name": "hand_rgb_link_hand_rgb_optical_frame_joint",
-      "joint_params_calibrated": null,
-      "parent": "hand_rgb_link",
-      "source": "hand_rgb_link",
-      "target": "hand_rgb_optical_frame",
       "type": "fixed",
       "weight": 1
     }
@@ -201,13 +117,6 @@
       "from_bag": false,
       "id": "base_link",
       "is_world": true,
-      "pattern": null,
-      "sensor_data": null
-    },
-    {
-      "from_bag": false,
-      "id": "base_link_inertia",
-      "is_world": false,
       "pattern": null,
       "sensor_data": null
     },
@@ -255,41 +164,6 @@
     },
     {
       "from_bag": false,
-      "id": "base",
-      "is_world": false,
-      "pattern": null,
-      "sensor_data": null
-    },
-    {
-      "from_bag": false,
-      "id": "flange",
-      "is_world": false,
-      "pattern": null,
-      "sensor_data": null
-    },
-    {
-      "from_bag": false,
-      "id": "tool0",
-      "is_world": false,
-      "pattern": null,
-      "sensor_data": null
-    },
-    {
-      "from_bag": false,
-      "id": "hand_rgb_link",
-      "is_world": false,
-      "pattern": null,
-      "sensor_data": null
-    },
-    {
-      "from_bag": false,
-      "id": "hand_rgb_optical_frame",
-      "is_world": false,
-      "pattern": null,
-      "sensor_data": null
-    },
-    {
-      "from_bag": false,
       "id": "gyro",
       "is_world": false,
       "pattern": null,
@@ -301,13 +175,6 @@
       "is_world": false,
       "pattern": null,
       "sensor_data": "hand_imu"
-    },
-    {
-      "from_bag": false,
-      "id": "chessboard_1200x900_10x7",
-      "is_world": false,
-      "pattern": null,
-      "sensor_data": null
     },
     {
       "id": "pattern_link",

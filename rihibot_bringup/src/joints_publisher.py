@@ -38,7 +38,7 @@ class JointRepublisher:
         ats = ApproximateTimeSynchronizer(
             [subscriber for subscriber in subscribers_arr],
             queue_size=50,
-            slop=0.0001
+            slop=0.010
         )
 
         ats.registerCallback(self.callback)
