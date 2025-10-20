@@ -9,8 +9,8 @@ WorldInfo {
   basicTimeStep 4
 }
 Viewpoint {
-  orientation -0.11970710504729432 -0.08182428033369907 0.9894316530963967 4.330919252730014
-  position 1.5333363468338275 2.8803739082461677 0.7271796351522718
+  orientation -0.020371370691659917 -0.05474090405580535 0.998292763010579 5.5696816153991975
+  position 0.03919530634699346 0.9358013109353625 0.020506749483981613
 }
 TexturedBackground {
 }
@@ -27,8 +27,24 @@ UR10e {
     "--clock"
   ]
   toolSlot [
+    Camera {
+      translation 3.76234e-08 0.00999996 -0.02
+      rotation 0.70710528118436 0.707108281185553 3.3905113482557537e-09 3.14159
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8 0 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.02 0.02 0.02
+          }
+        }
+      ]
+      name "hand_rgb"
+    }
     Accelerometer {
-      translation 0 0.01 0
+      translation 0 0.01 0.02
       children [
         Shape {
           appearance PBRAppearance {
@@ -36,7 +52,7 @@ UR10e {
             metalness 0
           }
           geometry Box {
-            size 0.03 0.03 0.03
+            size 0.02 0.02 0.02
           }
         }
       ]

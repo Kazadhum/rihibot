@@ -109,6 +109,18 @@
       "target": "accelerometer",
       "type": "fixed",
       "weight": 1
+    },
+    {
+      "child": "hand_rgb",
+      "from_bag": false,
+      "is_transformation_calibrated": false,
+      "joint_name": "wrist_3_link_hand_rgb_joint",
+      "joint_params_calibrated": null,
+      "parent": "wrist_3_link",
+      "source": "wrist_3_link",
+      "target": "hand_rgb",
+      "type": "fixed",
+      "weight": 1
     }
   ],
   "multigraph": false,
@@ -175,6 +187,13 @@
       "is_world": false,
       "pattern": null,
       "sensor_data": "hand_imu"
+    },
+    {
+      "from_bag": false,
+      "id": "hand_rgb",
+      "is_world": false,
+      "pattern": null,
+      "sensor_data": null
     },
     {
       "id": "pattern_link",

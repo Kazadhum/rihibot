@@ -320,6 +320,13 @@
   <joint name="wrist_3_link_accelerometer_joint" type="fixed">
     <parent link="wrist_3_link"/>
     <child link="accelerometer"/>
-    <origin xyz="0 0.13 0" rpy="0 0 0"/>
+    <origin xyz="0 0.13 0.02" rpy="0 0 0"/>
+  </joint>
+  <link name="hand_rgb">
+  </link>
+  <joint name="wrist_3_link_hand_rgb_joint" type="fixed">
+    <parent link="wrist_3_link"/>
+    <child link="hand_rgb"/>
+    <origin xyz="0 0.13 -0.02" rpy="1.570794 0.000002 0.000004"/>
   </joint>
 </robot>
