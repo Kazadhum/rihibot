@@ -10,7 +10,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation -0.020371370691659917 -0.05474090405580535 0.998292763010579 5.5696816153991975
-  position 0.03919530634699346 0.9358013109353625 0.020506749483981613
+  position 0.0391428927336198 0.9357669494848074 0.020085239781913313
 }
 TexturedBackground {
 }
@@ -42,6 +42,8 @@ UR10e {
         }
       ]
       name "hand_rgb"
+      width 1280
+      height 720
     }
     Accelerometer {
       translation 0 0.01 0.02
@@ -58,7 +60,7 @@ UR10e {
       ]
     }
     Gyro {
-      translation 0 0.01 0
+      translation 0 0.01 0.02
     }
   ]
 }

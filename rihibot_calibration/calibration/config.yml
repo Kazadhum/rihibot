@@ -36,7 +36,7 @@
 description_file: "package://rihibot_description/urdf/UR10e_test.urdf"
 
 # The calibration framework requires a bagfile to extract the necessary data for the calibration.
-bag_file: "$ROS_BAGS/rihibot/debug.bag"
+bag_file: "$ROS_BAGS/rihibot/data.bag"
 
 # You must define a frame of reference for the optimization process.
 # It must exist in the transformation chains of all the sensors which are being calibrated.

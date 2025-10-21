@@ -38,12 +38,12 @@ class ImuDataMerger:
             name="/accelerometer/values", data_class=Imu, callback=self.accel_recv
         )
 
-        self.imu_pub = rospy.Publisher(name="imu", data_class=Imu, queue_size=10)
+        self.imu_pub = rospy.Publisher(name="imu", data_class=Imu, queue_size=1)
 
         self.gyro_msg = None
         self.accel_msg = None
 
-        self.rate = rospy.Rate(hz=200)
+        self.rate = rospy.Rate(hz=50)
         self.run()
 
 

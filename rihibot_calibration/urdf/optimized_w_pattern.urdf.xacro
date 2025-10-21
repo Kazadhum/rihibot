@@ -310,14 +310,20 @@
   </link>
   <link name="gyro"/>
   <joint name="wrist_3_link_gyro_joint" type="fixed">
-    <origin xyz="0.0 0.13 0.0" rpy="0.0 0.0 0.0"/>
+    <origin xyz="0.0 0.13 0.02" rpy="0.0 0.0 0.0"/>
     <parent link="wrist_3_link"/>
     <child link="gyro"/>
   </joint>
   <link name="accelerometer"/>
   <joint name="wrist_3_link_accelerometer_joint" type="fixed">
-    <origin xyz="-0.16623351723058002 0.13850167432629829 0.040141947910749425" rpy="2.628944373253052e-06 -3.786397465896448e-05 -6.816176943571222e-05"/>
+    <origin xyz="0.0005263432993847853 0.13551521549650788 0.0016544206626573394" rpy="-0.00013378940826203883 -3.393275250867903e-05 0.00017693726214995607"/>
     <parent link="wrist_3_link"/>
     <child link="accelerometer"/>
+  </joint>
+  <link name="hand_rgb"/>
+  <joint name="wrist_3_link_hand_rgb_joint" type="fixed">
+    <origin xyz="0.0 0.13 -0.02" rpy="1.570794 2e-06 4e-06"/>
+    <parent link="wrist_3_link"/>
+    <child link="hand_rgb"/>
   </joint>
 </robot>
