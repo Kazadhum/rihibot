@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from rosgraph.names import anonymous_name
 import rospy
 from webots_ros.srv import set_float
 import math
@@ -22,6 +23,9 @@ def getJointsServices(joints: list) -> dict:
     return service_dict
 
 def main():
+
+    rospy.init_node(name="robot_mover", anonymous=True)
+
     joints: list = [
         "shoulder_pan_joint",
         "shoulder_lift_joint",
@@ -37,7 +41,7 @@ def main():
     for joint in joints:
         service_dict[f"{joint}_set_velocity"](value=0.3)
 
-    rospy.sleep(duration=5)
+    rospy.sleep(duration=rospy.Duration(5,0))
 
     service_dict["shoulder_pan_joint_set_position"](value=-0.13316862192716733)
     service_dict["shoulder_lift_joint_set_position"](value=-1.4320426512613473)
@@ -46,7 +50,7 @@ def main():
     service_dict["wrist_2_joint_set_position"](value=-1.4063863112570307)
     service_dict["wrist_3_joint_set_position"](value=math.pi)
     
-    rospy.sleep(duration=50)
+    rospy.sleep(duration=rospy.Duration(50,0))
 
     service_dict["shoulder_pan_joint_set_position"](value=math.pi)
 

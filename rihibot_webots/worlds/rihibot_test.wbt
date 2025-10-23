@@ -6,11 +6,11 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/universal_robots/protos/UR10e.proto"
 
 WorldInfo {
-  basicTimeStep 4
+  basicTimeStep 1
 }
 Viewpoint {
-  orientation -0.020371370691659917 -0.05474090405580535 0.998292763010579 5.5696816153991975
-  position 0.0391428927336198 0.9357669494848074 0.020085239781913313
+  orientation -0.1599387221079261 -0.4972417688968673 0.8527427680342988 5.561812546982997
+  position -1.1331779135259978 1.550243006004098 0.7660180741982876
 }
 TexturedBackground {
 }
@@ -42,8 +42,8 @@ UR10e {
         }
       ]
       name "hand_rgb"
-      width 1280
-      height 720
+      width 640
+      height 480
     }
     Accelerometer {
       translation 0 0.01 0.02

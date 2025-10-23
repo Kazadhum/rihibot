@@ -33,8 +33,9 @@
 
         /accelerometer/values
         /gyro/values
+        /hand_rgb/image_raw
         /imu
-
+        
         -o $(arg bag)">
     </node>
 </launch>
