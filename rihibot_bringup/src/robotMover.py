@@ -11,11 +11,13 @@ def getJointsServices(joints: list) -> dict:
     for joint in joints:
         rospy.wait_for_service(f"/{joint}/set_velocity")
         rospy.wait_for_service(f"/{joint}/set_position")
+        rospy.wait_for_service(f"/{joint}/set_acceleration")
     
     # now create the service dictionary
     for joint in joints:
         service_dict[f"{joint}_set_velocity"] = rospy.ServiceProxy(name=f"/{joint}/set_velocity", service_class=set_float)
         service_dict[f"{joint}_set_position"] = rospy.ServiceProxy(name=f"/{joint}/set_position", service_class=set_float)
+        service_dict[f"{joint}_set_acceleration"] = rospy.ServiceProxy(name=f"/{joint}/set_acceleration", service_class=set_float)
 
     return service_dict
 
@@ -43,7 +45,7 @@ def main():
     service_dict["wrist_1_joint_set_position"](value=-3.7271506176338907)
     service_dict["wrist_2_joint_set_position"](value=-1.4063863112570307)
     service_dict["wrist_3_joint_set_position"](value=math.pi)
-
+    
     rospy.sleep(duration=50)
 
     service_dict["shoulder_pan_joint_set_position"](value=math.pi)
@@ -51,6 +53,14 @@ def main():
     rospy.sleep(duration=20)
 
     service_dict["shoulder_pan_joint_set_position"](value=-0.13316862192716733)
+
+    rospy.sleep(duration=20)
+
+    service_dict["elbow_joint_set_position"](value=-math.pi)
+
+    rospy.sleep(duration=20)
+
+    service_dict["elbow_joint_set_position"](value=2.0900317792632093)
 
     rospy.sleep(duration=20)
 
@@ -78,10 +88,6 @@ def main():
     service_dict["wrist_1_joint_set_position"](value=-2.4822072621863356)
     service_dict["wrist_2_joint_set_position"](value=-1.820902008605684)
     service_dict["wrist_3_joint_set_position"](value=math.pi)
-
-
-
-
 
 
 if __name__ == "__main__":
