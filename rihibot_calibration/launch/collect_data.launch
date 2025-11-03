@@ -45,7 +45,7 @@
     <!-- arguments to be passed onto playbag.launch  -->
     <arg name="bag_file" default="$(env ROS_BAGS)/rihibot/data.bag"/>
     <arg name="bag_start" default="0"/>
-    <arg name="bag_rate" default="1"/>
+    <arg name="bag_rate" default="0.2"/>
     <arg name="ssl" default="lambda sensor_name: False"/>
     <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 

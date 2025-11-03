@@ -22,6 +22,8 @@
   <!-- Publish robot_state from URDF -->
   <param name="robot_description" command="$(find xacro)/xacro '$(find rihibot_description)/urdf/UR10e_test.urdf'" />
 
-  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" value="500.0"/>
+  </node>
 
 </launch>

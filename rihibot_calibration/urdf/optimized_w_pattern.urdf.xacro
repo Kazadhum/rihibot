@@ -316,7 +316,7 @@
   </joint>
   <link name="accelerometer"/>
   <joint name="wrist_3_link_accelerometer_joint" type="fixed">
-    <origin xyz="-0.003935301227812669 0.13046843384694518 0.02000000000000001" rpy="2.1052591166832396e-06 -2.1977056036377928e-06 -8.409363647627871e-06"/>
+    <origin xyz="-0.00030499984996082825 0.1326974524373059 0.02009591309795699" rpy="-0.00010506240361292751 -4.9121201176679644e-05 1.0526790810606028e-05"/>
     <parent link="wrist_3_link"/>
     <child link="accelerometer"/>
   </joint>

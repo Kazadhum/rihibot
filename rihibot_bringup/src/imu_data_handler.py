@@ -43,7 +43,7 @@ class ImuDataMerger:
         self.gyro_msg = None
         self.accel_msg = None
 
-        self.rate = rospy.Rate(hz=50)
+        self.rate = rospy.Rate(hz=150)
         self.run()
 
 
