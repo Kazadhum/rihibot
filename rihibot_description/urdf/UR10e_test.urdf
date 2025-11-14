@@ -1,16 +1,24 @@
 <?xml version="1.0"?>
 <robot name="/home/diogo/ros_workspaces/rihibot_ws/src/robots/rihibot/rihibot_description/urdf/UR10e_test.urdf" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <material name="imu_material">
+    <color rgba="1.0 0.717 0 1"/>
+  </material>
+  
   <link name="base_link">
     <visual>
-      <origin xyz="0 0 0.05" rpy="-3.141592 0 0"/>
+      <!-- <origin xyz="0 0 0.05" rpy="-3.141592 0 0"/> -->
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.095" length="0.1"/>
+        <!-- <cylinder radius="0.095" length="0.1"/> -->
+        <mesh filename="package://rihibot_description/meshes/ur10e/visual/base.dae"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0 0.05" rpy="-3.141592 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.095" length="0.1"/>
+        <!-- <cylinder radius="0.095" length="0.1"/> -->
+        <mesh filename="package://rihibot_description/meshes/ur10e/collision/base.stl"/>
       </geometry>
     </collision>
   </link>
@@ -23,29 +31,33 @@
   </joint>
   <link name="shoulder_link">
     <visual>
-      <origin xyz="0 0 0" rpy="-3.141592 0 0"/>
+      <!-- <origin xyz="0 0 0" rpy="-3.141592 0 0"/> -->
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.077" length="0.183"/>
+        <!-- <cylinder radius="0.077" length="0.183"/> -->
+        <mesh filename="package://rihibot_description/meshes/ur10e/visual/shoulder.dae" />
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="-3.141592 0 0"/>
+      <!-- <origin xyz="0 0 0" rpy="-3.141592 0 0"/> -->
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.077" length="0.183"/>
+        <!-- <cylinder radius="0.077" length="0.183"/> -->
+        <mesh filename="package://rihibot_description/meshes/ur10e/collision/shoulder.stl" />
       </geometry>
     </collision>
-    <visual>
-      <origin xyz="0 0.05 0" rpy="1.570797 0 0"/>
-      <geometry>
-        <cylinder radius="0.076" length="0.093"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0.05 0" rpy="1.570797 0 0"/>
-      <geometry>
-        <cylinder radius="0.076" length="0.093"/>
-      </geometry>
-    </collision>
+    <!-- <visual> -->
+    <!--   <origin xyz="0 0.05 0" rpy="1.570797 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.076" length="0.093"/> -->
+    <!--   </geometry> -->
+    <!-- </visual> -->
+    <!-- <collision> -->
+    <!--   <origin xyz="0 0.05 0" rpy="1.570797 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.076" length="0.093"/> -->
+    <!--   </geometry> -->
+    <!-- </collision> -->
   </link>
   <joint name="shoulder_lift_joint" type="revolute">
     <parent link="shoulder_link"/>
@@ -56,53 +68,57 @@
   </joint>
   <link name="upper_arm_link">
     <visual>
-      <origin xyz="0 0 0.33" rpy="-3.141592 0 0"/>
+      <!-- <origin xyz="0 0 0.33" rpy="-3.141592 0 0"/> -->
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.058" length="0.463"/>
+        <!-- <cylinder radius="0.058" length="0.463"/> -->
+        <mesh filename="package://rihibot_description/meshes/ur10e/visual/upperarm.dae" />
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0 0.33" rpy="-3.141592 0 0"/>
+      <!-- <origin xyz="0 0 0.33" rpy="-3.141592 0 0"/> -->
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.058" length="0.463"/>
+        <!-- <cylinder radius="0.058" length="0.463"/> -->
+        <mesh filename="package://rihibot_description/meshes/ur10e/collision/upperarm.stl" />
       </geometry>
     </collision>
-    <visual>
-      <origin xyz="0 0 0.06" rpy="-3.141592 0 0"/>
-      <geometry>
-        <cylinder radius="0.076" length="0.1"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0.06" rpy="-3.141592 0 0"/>
-      <geometry>
-        <cylinder radius="0.076" length="0.1"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin xyz="0 0 0" rpy="-1.570796 0 0"/>
-      <geometry>
-        <cylinder radius="0.077" length="0.183"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0" rpy="-1.570796 0 0"/>
-      <geometry>
-        <cylinder radius="0.077" length="0.183"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin xyz="0 -0.005 0.612" rpy="-1.570796 0 0"/>
-      <geometry>
-        <cylinder radius="0.061" length="0.149"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 -0.005 0.612" rpy="-1.570796 0 0"/>
-      <geometry>
-        <cylinder radius="0.061" length="0.149"/>
-      </geometry>
-    </collision>
+    <!-- <visual> -->
+    <!--   <origin xyz="0 0 0.06" rpy="-3.141592 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.076" length="0.1"/> -->
+    <!--   </geometry> -->
+    <!-- </visual> -->
+    <!-- <collision> -->
+    <!--   <origin xyz="0 0 0.06" rpy="-3.141592 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.076" length="0.1"/> -->
+    <!--   </geometry> -->
+    <!-- </collision> -->
+    <!-- <visual> -->
+    <!--   <origin xyz="0 0 0" rpy="-1.570796 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.077" length="0.183"/> -->
+    <!--   </geometry> -->
+    <!-- </visual> -->
+    <!-- <collision> -->
+    <!--   <origin xyz="0 0 0" rpy="-1.570796 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.077" length="0.183"/> -->
+    <!--   </geometry> -->
+    <!-- </collision> -->
+    <!-- <visual> -->
+    <!--   <origin xyz="0 -0.005 0.612" rpy="-1.570796 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.061" length="0.149"/> -->
+    <!--   </geometry> -->
+    <!-- </visual> -->
+    <!-- <collision> -->
+    <!--   <origin xyz="0 -0.005 0.612" rpy="-1.570796 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.061" length="0.149"/> -->
+    <!--   </geometry> -->
+    <!-- </collision> -->
   </link>
   <joint name="elbow_joint" type="revolute">
     <parent link="upper_arm_link"/>
@@ -113,101 +129,104 @@
   </joint>
   <link name="forearm_link">
     <visual>
-      <origin xyz="0 0 0.307" rpy="-3.141592 0 0"/>
+      <!-- <origin xyz="0 0 0.307" rpy="-3.141592 0 0"/> -->
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.047" length="0.49"/>
+        <!-- <cylinder radius="0.047" length="0.49"/> -->
+        <mesh filename="package://rihibot_description/meshes/ur10e/visual/forearm.dae" />
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0 0.307" rpy="-3.141592 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.047" length="0.49"/>
+        <!-- <cylinder radius="0.047" length="0.49"/> -->
+        <mesh filename="package://rihibot_description/meshes/ur10e/collision/forearm.stl" />
       </geometry>
     </collision>
-    <visual>
-      <origin xyz="0 0.009 0.57" rpy="-1.570796 0 0"/>
-      <geometry>
-        <cylinder radius="0.046" length="0.129"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0.009 0.57" rpy="-1.570796 0 0"/>
-      <geometry>
-        <cylinder radius="0.046" length="0.129"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin xyz="0 0.06 0" rpy="-1.570796 0 0"/>
-      <geometry>
-        <cylinder radius="0.058" length="0.05"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0.06 0" rpy="-1.570796 0 0"/>
-      <geometry>
-        <cylinder radius="0.058" length="0.05"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin xyz="0 0.06 -0.025" rpy="-1.570796 0 0"/>
-      <geometry>
-        <sphere radius="0.058"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0.06 -0.025" rpy="-1.570796 0 0"/>
-      <geometry>
-        <sphere radius="0.058"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin xyz="0 0.06 0.025" rpy="-1.570796 0 0"/>
-      <geometry>
-        <sphere radius="0.058"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0.06 0.025" rpy="-1.570796 0 0"/>
-      <geometry>
-        <sphere radius="0.058"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin xyz="0 0 0.05" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.057" length="0.03"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0.05" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.057" length="0.03"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin xyz="0 0.015 0.05" rpy="0 0 0"/>
-      <geometry>
-        <sphere radius="0.057"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0.015 0.05" rpy="0 0 0"/>
-      <geometry>
-        <sphere radius="0.057"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin xyz="0 -0.015 0.05" rpy="0 0 0"/>
-      <geometry>
-        <sphere radius="0.057"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 -0.015 0.05" rpy="0 0 0"/>
-      <geometry>
-        <sphere radius="0.057"/>
-      </geometry>
-    </collision>
+    <!-- <visual> -->
+    <!--   <origin xyz="0 0.009 0.57" rpy="-1.570796 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.046" length="0.129"/> -->
+    <!--   </geometry> -->
+    <!-- </visual> -->
+    <!-- <collision> -->
+    <!--   <origin xyz="0 0.009 0.57" rpy="-1.570796 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.046" length="0.129"/> -->
+    <!--   </geometry> -->
+    <!-- </collision> -->
+    <!-- <visual> -->
+    <!--   <origin xyz="0 0.06 0" rpy="-1.570796 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.058" length="0.05"/> -->
+    <!--   </geometry> -->
+    <!-- </visual> -->
+    <!-- <collision> -->
+    <!--   <origin xyz="0 0.06 0" rpy="-1.570796 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.058" length="0.05"/> -->
+    <!--   </geometry> -->
+    <!-- </collision> -->
+    <!-- <visual> -->
+    <!--   <origin xyz="0 0.06 -0.025" rpy="-1.570796 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <sphere radius="0.058"/> -->
+    <!--   </geometry> -->
+    <!-- </visual> -->
+    <!-- <collision> -->
+    <!--   <origin xyz="0 0.06 -0.025" rpy="-1.570796 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <sphere radius="0.058"/> -->
+    <!--   </geometry> -->
+    <!-- </collision> -->
+    <!-- <visual> -->
+    <!--   <origin xyz="0 0.06 0.025" rpy="-1.570796 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <sphere radius="0.058"/> -->
+    <!--   </geometry> -->
+    <!-- </visual> -->
+    <!-- <collision> -->
+    <!--   <origin xyz="0 0.06 0.025" rpy="-1.570796 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <sphere radius="0.058"/> -->
+    <!--   </geometry> -->
+    <!-- </collision> -->
+    <!-- <visual> -->
+    <!--   <origin xyz="0 0 0.05" rpy="0 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.057" length="0.03"/> -->
+    <!--   </geometry> -->
+    <!-- </visual> -->
+    <!-- <collision> -->
+    <!--   <origin xyz="0 0 0.05" rpy="0 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.057" length="0.03"/> -->
+    <!--   </geometry> -->
+    <!-- </collision> -->
+    <!-- <visual> -->
+    <!--   <origin xyz="0 0.015 0.05" rpy="0 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <sphere radius="0.057"/> -->
+    <!--   </geometry> -->
+    <!-- </visual> -->
+    <!-- <collision> -->
+    <!--   <origin xyz="0 0.015 0.05" rpy="0 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <sphere radius="0.057"/> -->
+    <!--   </geometry> -->
+    <!-- </collision> -->
+    <!-- <visual> -->
+    <!--   <origin xyz="0 -0.015 0.05" rpy="0 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <sphere radius="0.057"/> -->
+    <!--   </geometry> -->
+    <!-- </visual> -->
+    <!-- <collision> -->
+    <!--   <origin xyz="0 -0.015 0.05" rpy="0 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <sphere radius="0.057"/> -->
+    <!--   </geometry> -->
+    <!-- </collision> -->
   </link>
   <joint name="wrist_1_joint" type="revolute">
     <parent link="forearm_link"/>
@@ -218,29 +237,32 @@
   </joint>
   <link name="wrist_1_link">
     <visual>
-      <origin xyz="0 0.095 0" rpy="-1.570796 0 0"/>
+      <!-- <origin xyz="0 0.095 0" rpy="-1.570796 0 0"/> -->
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.045" length="0.075"/>
+        <!-- <cylinder radius="05" length="0.075"/> -->
+        <mesh filename="package://rihibot_description/meshes/ur10e/visual/wrist1.dae" />
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0.095 0" rpy="-1.570796 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.045" length="0.075"/>
+        <!-- <cylinder radius="0.045" length="0.075"/> -->
+        <mesh filename="package://rihibot_description/meshes/ur10e/collision/wrist1.stl" />
       </geometry>
     </collision>
-    <visual>
-      <origin xyz="0 0.134 0.007" rpy="-3.141592 0 0"/>
-      <geometry>
-        <cylinder radius="0.048" length="0.126"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0.134 0.007" rpy="-3.141592 0 0"/>
-      <geometry>
-        <cylinder radius="0.048" length="0.126"/>
-      </geometry>
-    </collision>
+    <!-- <visual> -->
+    <!--   <origin xyz="0 0.134 0.007" rpy="-3.141592 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.048" length="0.126"/> -->
+    <!--   </geometry> -->
+    <!-- </visual> -->
+    <!-- <collision> -->
+    <!--   <origin xyz="0 0.134 0.007" rpy="-3.141592 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.048" length="0.126"/> -->
+    <!--   </geometry> -->
+    <!-- </collision> -->
   </link>
   <joint name="wrist_2_joint" type="revolute">
     <parent link="wrist_1_link"/>
@@ -251,29 +273,31 @@
   </joint>
   <link name="wrist_2_link">
     <visual>
-      <origin xyz="0 0.007 0.1195" rpy="-1.570796 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.047" length="0.12"/>
+        <!-- <cylinder radius="0.047" length="0.12"/> -->
+        <mesh filename="package://rihibot_description/meshes/ur10e/visual/wrist2.dae" />
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0.007 0.1195" rpy="-1.570796 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.047" length="0.12"/>
+        <!-- <cylinder radius="0.047" length="0.12"/> -->
+        <mesh filename="package://rihibot_description/meshes/ur10e/collision/wrist2.stl" />
       </geometry>
     </collision>
-    <visual>
-      <origin xyz="0 0 0.0805" rpy="-3.141592 0 0"/>
-      <geometry>
-        <cylinder radius="0.046" length="0.043"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0.0805" rpy="-3.141592 0 0"/>
-      <geometry>
-        <cylinder radius="0.046" length="0.043"/>
-      </geometry>
-    </collision>
+    <!-- <visual> -->
+    <!--   <origin xyz="0 0 0.0805" rpy="-3.141592 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.046" length="0.043"/> -->
+    <!--   </geometry> -->
+    <!-- </visual> -->
+    <!-- <collision> -->
+    <!--   <origin xyz="0 0 0.0805" rpy="-3.141592 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.046" length="0.043"/> -->
+    <!--   </geometry> -->
+    <!-- </collision> -->
   </link>
   <joint name="wrist_3_joint" type="revolute">
     <parent link="wrist_2_link"/>
@@ -284,38 +308,46 @@
   </joint>
   <link name="wrist_3_link">
     <visual>
-      <origin xyz="0 0.086 0" rpy="-1.570796 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.045" length="0.048"/>
+        <!-- <cylinder radius="0.045" length="0.048"/> -->
+        <mesh filename="package://rihibot_description/meshes/ur10e/visual/wrist3.dae" />
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0.086 0" rpy="-1.570796 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.045" length="0.048"/>
+        <!-- <cylinder radius="0.045" length="0.048"/> -->
+        <mesh filename="package://rihibot_description/meshes/ur10e/collision/wrist3.stl" />
       </geometry>
     </collision>
-    <visual>
-      <origin xyz="0 0.109 0" rpy="-1.570796 0 0"/>
-      <geometry>
-        <cylinder radius="0.032" length="0.018"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0.109 0" rpy="-1.570796 0 0"/>
-      <geometry>
-        <cylinder radius="0.032" length="0.018"/>
-      </geometry>
-    </collision>
+    <!-- <visual> -->
+    <!--   <origin xyz="0 0.109 0" rpy="-1.570796 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.032" length="0.018"/> -->
+    <!--   </geometry> -->
+    <!-- </visual> -->
+    <!-- <collision> -->
+    <!--   <origin xyz="0 0.109 0" rpy="-1.570796 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <cylinder radius="0.032" length="0.018"/> -->
+    <!--   </geometry> -->
+    <!-- </collision> -->
   </link>
   <link name="gyro">
-  </link>
+      </link>
   <joint name="wrist_3_link_gyro_joint" type="fixed">
     <parent link="wrist_3_link"/>
     <child link="gyro"/>
     <origin xyz="0 0.13 0.02" rpy="0 0 0"/>
   </joint>
   <link name="accelerometer">
+    <visual>
+      <geometry>
+        <box size="0.02 0.02 0.02"/>
+      </geometry>
+      <material name="imu_material"  />
+    </visual>
   </link>
   <joint name="wrist_3_link_accelerometer_joint" type="fixed">
     <parent link="wrist_3_link"/>
@@ -323,10 +355,19 @@
     <origin xyz="0 0.13 0.02" rpy="0 0 0"/>
   </joint>
   <link name="hand_rgb">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://rihibot_description/meshes/rgb_camera/rgb_camera.stl" scale="0.5 0.5 0.5"/>
+      </geometry>
+    </visual>
   </link>
   <joint name="wrist_3_link_hand_rgb_joint" type="fixed">
     <parent link="wrist_3_link"/>
     <child link="hand_rgb"/>
-    <origin xyz="0 0.13 -0.02" rpy="1.570794 0.000002 0.000004"/>
+    <origin xyz="0 0.13 -0.02" rpy="-3.1415927 0 1.5707963"/>
   </joint>
+
+
+
 </robot>
