@@ -26,7 +26,7 @@
     <param name="publish_frequency" value="500.0"/>
   </node>
 
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rrbot_bringup)/config/config.rviz" required="true" output="screen">
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rihibot_bringup)/config/config.rviz" required="true" output="screen">
   </node>
 
 </launch>
